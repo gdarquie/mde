@@ -1,0 +1,9 @@
+<h1>Liste de textes</h1>
+
+<div *ngFor = "let texte of textes">
+
+    <h2>{{texte.id}}. {{ texte.titre }}</h2>
+    <p>{{ texte.contenu }}</p>
+    <p (click)="onSelect(texte)" [class.selected]="texte===selectedTexte">Lire le texte</p>
+</div>
+
