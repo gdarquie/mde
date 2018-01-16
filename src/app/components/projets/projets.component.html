@@ -1,0 +1,6 @@
+<h1>Liste de projets</h1>
+
+<div *ngFor = "let projet of projets" routerLink="/projet/{{projet.id}}">
+    <h2>{{projet.id}} . {{ projet.titre }}</h2>
+    <p>{{ projet.description }}</p>
+</div>
