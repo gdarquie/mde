@@ -19,9 +19,7 @@ export class ProjetsComponent implements OnInit {
     }
 
     getProjets(): void {
-        console.log('projets');
         this.projetService.getProjets()
             .subscribe(projets => this.projets = projets.slice(1, 10));
     }
-
 }

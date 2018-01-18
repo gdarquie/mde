@@ -1,3 +1,18 @@
-<p>
-  projet-detail works!
-</p>
+<h1>Liste de projets</h1>
+
+<h2>Les textes</h2>
+<div *ngFor = "let texte of textesProjet">
+    <h3>{{texte.id}} . {{ texte.titre }}</h3>
+    <p>{{ texte.description }}</p>
+</div>
+
+<h2>Les évènements</h2>
+<div *ngFor = "let event of evenementsProjet">
+    <h3>{{event.id}} . {{ event.nom }}</h3>
+    <p>{{ event.contenu }}</p>
+</div>
+
+<h2>Les personnages</h2>
+<div *ngFor = "let perso of personnagesProjet">
+    <h3>{{perso.id}} . {{ perso.surnom }}</h3>
+</div>
