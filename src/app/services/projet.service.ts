@@ -14,21 +14,24 @@ export class ProjetService {
 
     constructor( private http: HttpClient ) { }
 
+    getProjet(projetId): Observable<Projet> {
+        return this.http.get<Projet>(this.projetUrl + '=' + projetId );
+    }
+
     getProjets(): Observable<Projet[]> {
         return this.http.get<Projet[]>(this.projetsUrl);
     }
 
     getTextesProjet(projetId): Observable<Texte[]> {
-        console.log(this.projetUrl + '/' + projetId + '/textes');
-        return this.http.get<Texte[]>(this.projetUrl + '/' + projetId + '/textes');
+        return this.http.get<Texte[]>(this.projetUrl + '=' + projetId + '/textes');
     }
 
     getEvenementsProjet(projetId): Observable<Evenement[]> {
-        return this.http.get<Evenement[]>(this.projetUrl + '/' + projetId + '/evenements');
+        return this.http.get<Evenement[]>(this.projetUrl + '=' + projetId + '/evenements');
     }
 
     getPersonnagesProjet(projetId): Observable<Personnage[]> {
-        return this.http.get<Personnage[]>(this.projetUrl + '/' + projetId + '/personnages');
+        return this.http.get<Personnage[]>(this.projetUrl + '=' + projetId + '/personnages');
     }
 
 }

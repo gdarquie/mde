@@ -11,6 +11,8 @@ import { PageAccueilComponent } from './pages/page-accueil/page-accueil.componen
 import { AppRoutingModule } from './app-routing.module';
 import { ProjetDetailComponent } from './components/projet-detail/projet-detail.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { ProjetDetailComponent } from './components/projet-detail/projet-detail.
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule.forRoot()
   ],
   providers: [TexteService, ProjetService],
   bootstrap: [AppComponent]

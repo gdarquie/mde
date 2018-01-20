@@ -15,6 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProjetDetailComponent implements OnInit {
 
     projetId: string;
+    projet: Projet;
     projets: Projet[];
     textesProjet: Texte[];
     personnagesProjet: Personnage[];
@@ -24,9 +25,10 @@ export class ProjetDetailComponent implements OnInit {
 
     ngOnInit() {
         this.getProjetId();
-        this.getTextesProjet();
-        this.getPersonnagesProjet();
-        this.getEvenementsProjet();
+        this.getProjet(this.projetId);
+        this.getTextesProjet(this.projetId);
+        this.getPersonnagesProjet(this.projetId);
+        this.getEvenementsProjet(this.projetId);
     }
 
     getProjetId(): void {
@@ -35,18 +37,23 @@ export class ProjetDetailComponent implements OnInit {
         });
     }
 
-    getTextesProjet(): void {
-        this.projetService.getTextesProjet(this.projetId)
+    getProjet(projetId): void {
+        this.projetService.getProjet(projetId)
+            .subscribe(projet => this.projet = projet);
+    }
+
+    getTextesProjet(projetId): void {
+        this.projetService.getTextesProjet(projetId)
             .subscribe(textesProjet => this.textesProjet = textesProjet);
     }
 
-    getPersonnagesProjet(): void {
-        this.projetService.getPersonnagesProjet(this.projetId)
+    getPersonnagesProjet(projetId): void {
+        this.projetService.getPersonnagesProjet(projetId)
             .subscribe(personnagesProjet => this.personnagesProjet = personnagesProjet);
     }
 
-    getEvenementsProjet(): void {
-        this.projetService.getEvenementsProjet(this.projetId)
+    getEvenementsProjet(projetId): void {
+        this.projetService.getEvenementsProjet(projetId)
             .subscribe(evenementsProjet => this.evenementsProjet = evenementsProjet);
     }
 
