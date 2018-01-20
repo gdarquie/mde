@@ -22,4 +22,6 @@ export class ProjetsComponent implements OnInit {
         this.projetService.getProjets()
             .subscribe(projets => this.projets = projets.slice(1, 10));
     }
+
+
 }

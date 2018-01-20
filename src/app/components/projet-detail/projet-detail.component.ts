@@ -7,6 +7,8 @@ import {Personnage} from '../../classes/personnage';
 import {Evenement} from '../../classes/evenement';
 import { ActivatedRoute } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-projet-detail',
   templateUrl: './projet-detail.component.html',
@@ -58,10 +60,17 @@ export class ProjetDetailComponent implements OnInit {
     }
 
     //https://angular.io/tutorial/toh-pt6
-    
-    // postProjet(): void {
-    //
-    // }
+
+    addProjet(titre: string, description: string): void {
+        console.log('Oui, lancée!!');
+        description = description.trim();
+        titre = 'test';
+        if (!description) { return; }
+        this.projetService.addProjet({ titre, description } as Projet)
+            .subscribe(projet => {
+                this.projets.push(projet);
+            });
+    }
 
 
 }
