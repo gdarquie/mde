@@ -12,6 +12,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProjetDetailComponent } from './components/projet-detail/projet-detail.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { MenuComponent } from './components/menu/menu.component';
+import { PageProjetsComponent } from './pages/page-projets/page-projets.component';
+import { PageProjetDetailComponent } from './pages/page-projet-detail/page-projet-detail.component';
+import { PageTextesComponent } from './pages/page-textes/page-textes.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +25,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ProjetsComponent,
     PageAccueilComponent,
     ProjetDetailComponent,
+    MenuComponent,
+    PageProjetsComponent,
+    PageProjetDetailComponent,
+    PageTextesComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

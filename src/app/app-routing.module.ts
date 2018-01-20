@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import { ProjetsComponent} from './components/projets/projets.component';
-import { TextesComponent} from './components/textes/textes.component';
+import { PageTextesComponent} from './pages/page-textes/page-textes.component';
+import { PageProjetsComponent} from './pages/page-projets/page-projets.component';
 import { PageAccueilComponent} from './pages/page-accueil/page-accueil.component';
-import { ProjetDetailComponent} from './components/projet-detail/projet-detail.component';
+import { PageProjetDetailComponent} from './pages/page-projet-detail/page-projet-detail.component';
 
 const routes: Routes = [
-    { path: 'textes', component: TextesComponent },
-    { path: 'projets', component: ProjetsComponent },
+    { path: 'textes', component: PageTextesComponent },
+    { path: 'projets', component: PageProjetsComponent },
     { path: 'accueil', component: PageAccueilComponent },
-    { path: 'projet/:id', component: ProjetDetailComponent },
-    { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+    { path: 'projet/:id', component: PageProjetDetailComponent },
 ];
 
 @NgModule({

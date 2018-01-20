@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+#main-header{
+    text-align: center;
+}
+
+.carte-item {
+    padding: 10px;
+    margin-bottom: 8px;
+}
+
+.groupe {
+
+}
