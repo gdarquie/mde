@@ -11,6 +11,7 @@ const routes: Routes = [
     { path: 'projets', component: PageProjetsComponent },
     { path: 'accueil', component: PageAccueilComponent },
     { path: 'projet/:id', component: PageProjetDetailComponent },
+    { path: '', redirectTo: '/accueil', pathMatch: 'full' },
 ];
 
 @NgModule({

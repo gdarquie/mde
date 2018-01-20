@@ -57,5 +57,11 @@ export class ProjetDetailComponent implements OnInit {
             .subscribe(evenementsProjet => this.evenementsProjet = evenementsProjet);
     }
 
+    //https://angular.io/tutorial/toh-pt6
+    
+    // postProjet(): void {
+    //
+    // }
+
 
 }
