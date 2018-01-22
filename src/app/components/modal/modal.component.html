@@ -6,8 +6,21 @@
         </button>
     </div>
     <div class="modal-body">
-        <div [froalaEditor]>Hello, Froala!</div>
+        <!--<div [froalaEditor]>Hello, Froala!</div>-->
+
+        <div>
+            <label>Description du projet:
+                <input #projetDescription />
+            </label>
+            <!-- (click) passes input value to add() and then clears the input -->
+            <button (click)="addProjet('test mde', projetDescription.value); projetDescription.value=''">
+                add
+            </button>
+        </div>
     </div>
+
+
+
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
     </div>

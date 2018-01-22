@@ -23,5 +23,15 @@ export class ProjetsComponent implements OnInit {
             .subscribe(projets => this.projets = projets.slice(1, 10));
     }
 
+    addProjet(titre: string, description: string): void {
+        console.log('Oui, lancée!!');
+        description = description.trim();
+        titre = 'test';
+        if (!description) { return; }
+        this.projetService.addProjet({ titre, description } as Projet)
+            .subscribe(projet => {
+                this.projets.push(projet);
+            });
+    }
 
 }

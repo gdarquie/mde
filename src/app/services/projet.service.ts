@@ -6,6 +6,7 @@ import {Evenement} from '../classes/evenement';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { catchError, map, tap } from 'rxjs/operators';
+import { MessageService } from './message.service';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
@@ -17,13 +18,15 @@ export class ProjetService {
     private projetsUrl = 'http://127.0.0.1:8000/projets';
     private projetUrl = 'http://127.0.0.1:8000/projet';
 
-    constructor( private http: HttpClient ) { }
+    constructor( private http: HttpClient, private messageService: MessageService ) { }
 
     getProjet(projetId): Observable<Projet> {
+        this.messageService.add('ProjetService: projets atteints');
         return this.http.get<Projet>(this.projetUrl + '=' + projetId );
     }
 
     getProjets(): Observable<Projet[]> {
+        this.messageService.add('ProjetService: projets atteints');
         return this.http.get<Projet[]>(this.projetsUrl)
             .pipe(
                 // tap(projets => this.log(`fetched projets`)),
@@ -73,7 +76,7 @@ export class ProjetService {
             console.error(error); // log to console instead
 
             // TODO: better job of transforming error for user consumption
-            this.log(`${operation} failed: ${error.message}`);
+            // this.log(`${operation} failed: ${error.message}`);
 
             // Let the app keep running by returning an empty result.
             return of(result as T);

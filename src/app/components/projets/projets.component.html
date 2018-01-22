@@ -2,6 +2,16 @@
 
 <app-modal-component></app-modal-component>
 
+<div>
+    <label>Description du projet:
+        <input #projetDescription />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="addProjet('test mde', projetDescription.value); projetDescription.value=''">
+        add
+    </button>
+</div>
+
 <div *ngFor = "let projet of projets">
     <div class="carte-item card">
         <h2>{{projet.id}} . {{ projet.titre }}</h2>

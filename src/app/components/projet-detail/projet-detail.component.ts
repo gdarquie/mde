@@ -59,18 +59,4 @@ export class ProjetDetailComponent implements OnInit {
             .subscribe(evenementsProjet => this.evenementsProjet = evenementsProjet);
     }
 
-    //https://angular.io/tutorial/toh-pt6
-
-    addProjet(titre: string, description: string): void {
-        console.log('Oui, lancée!!');
-        description = description.trim();
-        titre = 'test';
-        if (!description) { return; }
-        this.projetService.addProjet({ titre, description } as Projet)
-            .subscribe(projet => {
-                this.projets.push(projet);
-            });
-    }
-
-
 }

@@ -18,6 +18,8 @@ import { PageProjetDetailComponent } from './pages/page-projet-detail/page-proje
 import { PageTextesComponent } from './pages/page-textes/page-textes.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { MessagesComponent } from './components/messages/messages.component';
+import { MessageService } from './services/message.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
     PageProjetsComponent,
     PageProjetDetailComponent,
     PageTextesComponent,
-    ModalComponent
+    ModalComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot()
   ],
-  providers: [TexteService, ProjetService],
+  providers: [TexteService, ProjetService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
