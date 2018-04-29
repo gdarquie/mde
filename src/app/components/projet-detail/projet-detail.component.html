@@ -1,11 +1,9 @@
-
-
-<div *ngFor = "let p of projet">
-    <h1>{{p.titre}}</h1>
-    <p>{{p.description}}</p>
+<div>
+    <h1>{{projet.titre}}</h1>
+    <p>{{projet.promesse}}</p>
 </div>
 
-<div *ngIf = "textesProjet?.length > 0">
+<!-- <div *ngIf = "textesProjet?.length > 0">
     <h2>Les textes</h2>
     <div *ngFor = "let texte of textesProjet">
         <h3>{{texte.id}} . {{ texte.titre }}</h3>
@@ -26,6 +24,4 @@
     <div *ngFor = "let perso of personnagesProjet">
         <h3>{{perso.id}} . {{ perso.surnom }}</h3>
     </div>
-</div>
-
-
+</div> -->

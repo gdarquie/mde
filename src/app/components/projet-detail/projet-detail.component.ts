@@ -19,18 +19,18 @@ export class ProjetDetailComponent implements OnInit {
     projetId: string;
     projet: Projet;
     projets: Projet[];
-    textesProjet: Texte[];
-    personnagesProjet: Personnage[];
-    evenementsProjet: Evenement[];
+    // textesProjet: Texte[];
+    // personnagesProjet: Personnage[];
+    // evenementsProjet: Evenement[];
 
     constructor(private http: HttpClient, private projetService: ProjetService, private route: ActivatedRoute) { }
 
     ngOnInit() {
         this.getProjetId();
         this.getProjet(this.projetId);
-        this.getTextesProjet(this.projetId);
-        this.getPersonnagesProjet(this.projetId);
-        this.getEvenementsProjet(this.projetId);
+        // this.getTextesProjet(this.projetId);
+        // this.getPersonnagesProjet(this.projetId);
+        // this.getEvenementsProjet(this.projetId);
     }
 
     getProjetId(): void {
@@ -43,20 +43,20 @@ export class ProjetDetailComponent implements OnInit {
         this.projetService.getProjet(projetId)
             .subscribe(projet => this.projet = projet);
     }
-
-    getTextesProjet(projetId): void {
-        this.projetService.getTextesProjet(projetId)
-            .subscribe(textesProjet => this.textesProjet = textesProjet);
-    }
-
-    getPersonnagesProjet(projetId): void {
-        this.projetService.getPersonnagesProjet(projetId)
-            .subscribe(personnagesProjet => this.personnagesProjet = personnagesProjet);
-    }
-
-    getEvenementsProjet(projetId): void {
-        this.projetService.getEvenementsProjet(projetId)
-            .subscribe(evenementsProjet => this.evenementsProjet = evenementsProjet);
-    }
+    //
+    // getTextesProjet(projetId): void {
+    //     this.projetService.getTextesProjet(projetId)
+    //         .subscribe(textesProjet => this.textesProjet = textesProjet);
+    // }
+    //
+    // getPersonnagesProjet(projetId): void {
+    //     this.projetService.getPersonnagesProjet(projetId)
+    //         .subscribe(personnagesProjet => this.personnagesProjet = personnagesProjet);
+    // }
+    //
+    // getEvenementsProjet(projetId): void {
+    //     this.projetService.getEvenementsProjet(projetId)
+    //         .subscribe(evenementsProjet => this.evenementsProjet = evenementsProjet);
+    // }
 
 }

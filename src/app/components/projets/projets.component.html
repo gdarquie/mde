@@ -1,13 +1,14 @@
 <h1>Projets</h1>
 
-<app-modal-component></app-modal-component>
+<app-modal-component class="modal-lg"></app-modal-component>
 
 <div>
     <label>Description du projet:
-        <input #projetDescription />
+        Titre : <input #projetTitre>
+        Description : <input #projetDescription />
     </label>
     <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="addProjet('test mde', projetDescription.value); projetDescription.value=''">
+    <button (click)="addProjet(projetTitre.value, projetDescription.value); projetDescription.value=''">
         add
     </button>
 </div>

@@ -20,14 +20,14 @@ export class ProjetsComponent implements OnInit {
 
     getProjets(): void {
         this.projetService.getProjets()
-            .subscribe(projets => this.projets = projets.slice(1, 10));
+            .subscribe(projets => this.projets = projets.slice(0, 9));
     }
 
     addProjet(titre: string, description: string): void {
-        console.log('Oui, lancée!!');
+        titre = titre.trim();
         description = description.trim();
-        titre = 'test';
-        if (!description) { return; }
+
+        if (!titre && !description) { return; }
         this.projetService.addProjet({ titre, description } as Projet)
             .subscribe(projet => {
                 this.projets.push(projet);

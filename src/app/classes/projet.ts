@@ -1,4 +1,4 @@
 export class Projet {
     titre: string;
-    description: string;
+    resume: string;
 }

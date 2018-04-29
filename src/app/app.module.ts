@@ -20,6 +20,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { MessagesComponent } from './components/messages/messages.component';
 import { MessageService } from './services/message.service';
+import { AddProjetComponent } from './components/add-projet/add-projet.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MessageService } from './services/message.service';
     PageProjetDetailComponent,
     PageTextesComponent,
     ModalComponent,
-    MessagesComponent
+    MessagesComponent,
+    AddProjetComponent
   ],
   imports: [
     BrowserModule,
