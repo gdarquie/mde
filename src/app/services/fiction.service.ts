@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Projet } from '../classes/projet';
+import { Fiction } from '../classes/fiction';
 import {Texte} from '../classes/texte';
 import {Personnage} from '../classes/personnage';
 import {Evenement} from '../classes/evenement';
@@ -14,53 +14,53 @@ const httpOptions = {
 };
 
 @Injectable()
-export class ProjetService {
+export class FictionService {
 
-    private projetsUrl = 'http://127.0.0.1:8000/fictions';
+    private fictionsUrl = 'http://127.0.0.1:8000/fictions';
 
     constructor( private http: HttpClient, private messageService: MessageService ) { }
 
-    getProjet(projetId): Observable<Projet> {
-        console.log('Get Projet = '+projetId);
+    getFiction(fictionId): Observable<Fiction> {
+        console.log('Get Fiction = '+fictionId);
 
-        this.messageService.add('ProjetService: projets atteints');
-        return this.http.get<Projet>(this.projetsUrl + '/' + projetId );
+        this.messageService.add('FictionService: fictions atteints');
+        return this.http.get<Fiction>(this.fictionsUrl + '/' + fictionId );
     }
 
-    getProjets(): Observable<Projet[]> {
-        this.messageService.add('ProjetService: projets atteints');
-        return this.http.get<Projet[]>(this.projetsUrl)
+    getFictions(): Observable<Fiction[]> {
+        this.messageService.add('FictionService: fictions atteints');
+        return this.http.get<Fiction[]>(this.fictionsUrl)
             .pipe(
-                catchError(this.handleError('getProjets', []))
+                catchError(this.handleError('getFictions', []))
         );
     }
 
-    // getTextesProjet(projetId): Observable<Texte[]> {
-    //     return this.http.get<Texte[]>(this.projetUrl + '=' + projetId + '/textes')
+    // getTextesFiction(fictionId): Observable<Texte[]> {
+    //     return this.http.get<Texte[]>(this.fictionUrl + '=' + fictionId + '/textes')
     //         .pipe(
-    //             catchError(this.handleError('getTextesProjet', []))
+    //             catchError(this.handleError('getTextesFiction', []))
     //         );
     // }
     //
-    // getEvenementsProjet(projetId): Observable<Evenement[]> {
-    //     return this.http.get<Evenement[]>(this.projetsUrl + '=' + projetId + '/evenements')
+    // getEvenementsFiction(fictionId): Observable<Evenement[]> {
+    //     return this.http.get<Evenement[]>(this.fictionsUrl + '=' + fictionId + '/evenements')
     //         .pipe(
-    //             catchError(this.handleError('getEvenementsProjet', []))
+    //             catchError(this.handleError('getEvenementsFiction', []))
     //         );
     // }
     //
-    // getPersonnagesProjet(projetId): Observable<Personnage[]> {
-    //     return this.http.get<Personnage[]>(this.projetsUrl + '=' + projetId + '/personnages')
+    // getPersonnagesFiction(fictionId): Observable<Personnage[]> {
+    //     return this.http.get<Personnage[]>(this.fictionsUrl + '=' + fictionId + '/personnages')
     //         .pipe(
-    //             catchError(this.handleError('getPersonnagesProjet', []))
+    //             catchError(this.handleError('getPersonnagesFiction', []))
     //         );
     // }
 
     /** POST: add a new hero to the server */
-    addProjet (projet: Projet): Observable<Projet> {
-        console.log(projet);
-        return this.http.post<Projet>(this.projetsUrl, projet, httpOptions).pipe(
-            catchError(this.handleError<Projet>('addProjet'))
+    addFiction (fiction: Fiction): Observable<Fiction> {
+        console.log(fiction);
+        return this.http.post<Fiction>(this.fictionsUrl, fiction, httpOptions).pipe(
+            catchError(this.handleError<Fiction>('addFiction'))
         );
     }
 

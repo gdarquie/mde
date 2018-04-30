@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Projet } from '../../classes/projet';
-import { ProjetService} from '../../services/projet.service';
+import { Fiction } from '../../classes/fiction';
+import { FictionService} from '../../services/fiction.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
-  selector: 'app-add-projet',
-  templateUrl: './add-projet.component.html',
-  styleUrls: ['./add-projet.component.css']
+  selector: 'app-add-fiction',
+  templateUrl: './add-fiction.component.html',
+  styleUrls: ['./add-fiction.component.css']
 })
-export class AddProjetComponent implements OnInit {
+export class AddFictionComponent implements OnInit {
 
-    projets: Projet[];
+    fictions: Fiction[];
     content: string;
 
     options: Object = {
-        editorClass: 'add-projet-description',
+        editorClass: 'add-fiction-description',
         placeholderText: 'Description du service',
         charCounterCount: true,
         events : {
@@ -28,7 +28,7 @@ export class AddProjetComponent implements OnInit {
     }
 
 
-    constructor(private http: HttpClient, private projetService: ProjetService) {}
+    constructor(private http: HttpClient, private fictionService: FictionService) {}
 
     ngOnInit() {
         console.log('Init', this.content);
@@ -38,16 +38,16 @@ export class AddProjetComponent implements OnInit {
         this.content = 'Récupération du contenu du form';
     }
 
-    addProjet(titre: string, description: string): void {
+    addFiction(titre: string, description: string): void {
         titre = titre.trim();
         description = description.trim();
 
         //quand je clique sur un bouton, je vois le contenu du champ
         // console.log('content =', $('div#froala-editor').froalaEditor('html.get'));
         if (!description) { return; }
-        this.projetService.addProjet({ titre, description } as Projet)
-            .subscribe(projet => {
-                // this.projets.push(projet);
+        this.fictionService.addFiction({ titre, description } as Fiction)
+            .subscribe(fiction => {
+                // this.fictions.push(fiction);
             });
     }
 }

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Projet } from '../../classes/projet';
+import { Projet } from '../../classes/fiction';
 import { ProjetService} from '../../services/projet.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
-  selector: 'app-projets',
-  templateUrl: './projets.component.html',
-  styleUrls: ['./projets.component.css']
+  selector: 'app-fictions',
+  templateUrl: './fictions.component.html',
+  styleUrls: ['./fictions.component.css']
 })
 export class ProjetsComponent implements OnInit {
 

@@ -15,7 +15,7 @@
 
 <div *ngFor = "let projet of projets">
     <div class="carte-item card">
-        <h2>{{projet.id}} . {{ projet.titre }}</h2>
+        <h2>{{ projet.titre }}</h2>
         <p>{{ projet.description }}</p>
         <a routerLink="/projet/{{projet.id}}">Voir le projet</a>
     </div>
