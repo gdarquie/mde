@@ -42,9 +42,8 @@ export class FictionService {
     }
 
     deleteFiction (fictionId): Observable<Fiction> {
-        console.log('Suppression d\'une fiction');
         return this.http.delete<Fiction>(this.fictionsUrl + '/' + fictionId, httpOptions).pipe(
-            catchError(this.handleError<Fiction>('addFiction'))
+            catchError(this.handleError<Fiction>('deleteFiction'))
         );
     }
 

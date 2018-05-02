@@ -51,4 +51,12 @@ export class FictionsComponent implements OnInit {
             });
     }
 
+    removeFiction = function(fiction) {
+        this.fictionService.deleteFiction(fiction.id)
+            .subscribe(fictions => this.fictions = fictions.slice(0, 9));
+        const index = this.fictions.indexOf(fiction);
+        this.fictions.splice(index, 1);
+
+    };
+
 }

@@ -16,11 +16,9 @@
         <h2>{{fiction.titre}}</h2>
         <p>{{fiction.id}} - {{fiction.uuid}}</p>
         <p>{{fiction.description}}</p>
+        <a class="btn" (click)="removeFiction(fiction)">Delete</a>
         <a routerLink="/fiction/{{fiction.id}}">Voir le fiction</a>
     </div>
 </div>
 
 
-<button type="button" class="btn btn-outline-dark" (click)="deleteFiction('hello');">
-    delete
-</button>
