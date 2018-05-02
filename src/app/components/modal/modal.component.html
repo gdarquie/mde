@@ -1,20 +1,17 @@
 <ng-template #content let-c="close" let-d="dismiss" >
     <div class="modal-header">
-        <h4 class="modal-title">Créer un projet</h4>
+        <h4 class="modal-title">Créer une fiction</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
-
-        <app-add-projet></app-add-projet>
-
+        <app-add-fiction></app-add-fiction>
     </div>
 
     <div class="modal-footer">
         <!-- (click) passes input value to add() and then clears the input -->
-
-        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Fermer</button>
     </div>
 </ng-template>
 

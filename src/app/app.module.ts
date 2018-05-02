@@ -1,41 +1,37 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
 import { HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app.component';
-import { TextesComponent } from './components/textes/textes.component';
-import { TexteService } from './services/texte.service';
-import {ProjetService} from './services/projet.service';
-import { ProjetsComponent } from './components/projets/projets.component';
-import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from '@angular/forms';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
-import { ProjetDetailComponent } from './components/projet-detail/projet-detail.component';
+import { AppComponent } from './app.component';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { MenuComponent } from './components/menu/menu.component';
-import { PageProjetsComponent } from './pages/page-projets/page-projets.component';
-import { PageProjetDetailComponent } from './pages/page-projet-detail/page-projet-detail.component';
-import { PageTextesComponent } from './pages/page-textes/page-textes.component';
+import { TextesComponent } from './components/textes/textes.component';
+import { TexteService } from './services/texte.service';
+import { AddFictionComponent } from './components/add-fiction/add-fiction.component';
 import { ModalComponent } from './components/modal/modal.component';
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import { MessagesComponent } from './components/messages/messages.component';
-import { MessageService } from './services/message.service';
-import { AddProjetComponent } from './components/add-projet/add-projet.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { PageFictionDetailComponent } from './pages/page-fiction-detail/page-fiction-detail.component';
+import { FictionDetailComponent } from './components/fiction-detail/fiction-detail.component';
+import { FictionService } from './services/fiction.service';
+import { FictionsComponent } from './components/fictions/fictions.component';
+import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TextesComponent,
-    ProjetsComponent,
+    FictionsComponent,
     PageAccueilComponent,
-    ProjetDetailComponent,
+    FictionDetailComponent,
     MenuComponent,
-    PageProjetsComponent,
-    PageProjetDetailComponent,
-    PageTextesComponent,
+    PageFictionDetailComponent,
     ModalComponent,
-    MessagesComponent,
-    AddProjetComponent
+    AddFictionComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +39,11 @@ import { AddProjetComponent } from './components/add-projet/add-projet.component
     AppRoutingModule,
     NgbModule.forRoot(),
     FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    FroalaViewModule.forRoot(),
+    FormsModule,
+    BrowserAnimationsModule
   ],
-  providers: [TexteService, ProjetService, MessageService],
+  providers: [TexteService, FictionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

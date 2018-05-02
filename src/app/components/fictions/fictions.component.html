@@ -1,22 +1,26 @@
-<h1>Projets</h1>
+<h1>Fictions</h1>
 
-<app-modal-component class="modal-lg"></app-modal-component>
-
-<div>
-    <label>Description du projet:
-        Titre : <input #projetTitre>
-        Description : <input #projetDescription />
-    </label>
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="addProjet(projetTitre.value, projetDescription.value); projetDescription.value=''">
-        add
-    </button>
+<div [@goals]>
+    <form>
+        <input type="text" name="items" placeholder="Premier test" [(ngModel)]="displayText">
+        <br>
+        <span>{{ displayText }}</span>
+        <br>
+        <input type="submit" [value]="buttonText">
+    </form>
 </div>
 
-<div *ngFor = "let projet of projets">
+
+<div *ngFor = "let fiction of fictions">
     <div class="carte-item card">
-        <h2>{{ projet.titre }}</h2>
-        <p>{{ projet.description }}</p>
-        <a routerLink="/projet/{{projet.id}}">Voir le projet</a>
+        <h2>{{fiction.titre}}</h2>
+        <p>{{fiction.id}} - {{fiction.uuid}}</p>
+        <p>{{fiction.description}}</p>
+        <a routerLink="/fiction/{{fiction.id}}">Voir le fiction</a>
     </div>
 </div>
+
+
+<button type="button" class="btn btn-outline-dark" (click)="deleteFiction('hello');">
+    delete
+</button>

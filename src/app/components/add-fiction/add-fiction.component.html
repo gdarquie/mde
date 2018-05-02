@@ -1,15 +1,15 @@
 <div>
-    <label>Description du projet:
-        <input #projetDescription />
+    <label>Description de la fiction:
+        <input #fictionDescription />
     </label>
 
     <!--https://github.com/froala/angular-froala-wysiwyg#usage-->
-    <div [froalaEditor]='options' [(froalaModel)]='editorContent' >
-        En test
-    </div>
+    <!--<div [froalaEditor]='options' [(froalaModel)]='editorContent' >-->
+        <!--En test-->
+    <!--</div>-->
 
 </div>
 
-<button type="button" class="btn btn-outline-dark" (click)="addProjet('test mde', projetDescription.value);">
+<button type="button" class="btn btn-outline-dark" (click)="addFiction('test mde', fictionDescription.value);">
     add
 </button>

@@ -1,47 +1,40 @@
-<div>
-    <h1>{{projet.titre}}</h1>
-    <p>{{projet.id}}</p>
-    <p>{{projet.resume}}</p>
+<div class="row">
 
-    <div *ngFor = "let texte of projet.textes">
-      <h2>{{texte.titre}}</h2>
-      <p>{{texte.description}}</p>
-        <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le projet</a> -->
+    <div class="col s6">
+        <h1>{{fiction.titre}}</h1>
+        <p>{{fiction.id}} - {{fiction.uuid}}</p>
+        <p>timestamp = {{fiction.dateCreation.timestamp | date : 'yyyy-MM-dd HH:mm:ss Z' }}</p>
+        <p>{{fiction.description}}</p>
     </div>
 
-    <div *ngFor = "let personnage of projet.personnages">
-      <h2>{{personnage.titre}}</h2>
-      <p>{{personnage.description}}</p>
-        <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le projet</a> -->
+    <div class="col s3">
+
+        <h1>Textes</h1>
+
+        <div *ngFor = "let texte of fiction.textes">
+            <h2>{{texte.titre}}</h2>
+            <p>uuid : {{texte.uuid}}</p>
+            <p>description : {{texte.description}}</p>
+            <p>type : {{texte.type}}</p>
+            <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> -->
+        </div>
+
     </div>
 
-    <div *ngFor = "let evenement of projet.evenements">
-      <h2>{{evenement.titre}}</h2>
-      <p>{{evenement.description}}</p>
-        <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le projet</a> -->
+    <div class="col s3">
+        <h1>Personnages & évènements</h1>
+        <div *ngFor = "let personnage of fiction.personnages">
+            <h2>{{personnage.titre}}</h2>
+            <p>{{personnage.description}}</p>
+            <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> -->
+        </div>
+
+        <div *ngFor = "let evenement of fiction.evenements">
+            <h2>{{evenement.titre}}</h2>
+            <p>{{evenement.description}}</p>
+            <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> -->
+        </div>
     </div>
 
 </div>
 
-<!-- <div *ngIf = "textesProjet?.length > 0">
-    <h2>Les textes</h2>
-    <div *ngFor = "let texte of textesProjet">
-        <h3>{{texte.id}} . {{ texte.titre }}</h3>
-        <p>{{ texte.contenu }}</p>
-    </div>
-</div>
-
-<div *ngIf = "evenementsProjet?.length > 0">
-    <h2>Les évènements</h2>
-    <div *ngFor = "let event of evenementsProjet">
-        <h3>{{event.id}} . {{ event.nom }}</h3>
-        <p>{{ event.contenu }}</p>
-    </div>
-</div>
-
-<div *ngIf = "personnagesProjet?.length > 0">
-    <h2>Les personnages</h2>
-    <div *ngFor = "let perso of personnagesProjet">
-        <h3>{{perso.id}} . {{ perso.surnom }}</h3>
-    </div>
-</div> -->

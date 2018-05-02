@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Fiction, Fiction} from '../../classes/fiction';
+import {Fiction} from '../../classes/fiction';
 import { Texte } from '../../classes/texte';
 import { FictionService} from '../../services/fiction.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FictionDetailComponent implements OnInit {
 
-    fictionIo: string;
+    fictionId: string;
     fiction: Fiction;
     fictions: Fiction[];
     // textesFiction: Texte[];

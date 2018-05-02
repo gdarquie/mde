@@ -31,10 +31,11 @@ export class AddFictionComponent implements OnInit {
     constructor(private http: HttpClient, private fictionService: FictionService) {}
 
     ngOnInit() {
-        console.log('Init', this.content);
+        console.log('Add fiction init lancé', this.content);
+        console.log(this.fictions);
     }
 
-    getFormContent(){
+    getFormContent() {
         this.content = 'Récupération du contenu du form';
     }
 
@@ -42,12 +43,15 @@ export class AddFictionComponent implements OnInit {
         titre = titre.trim();
         description = description.trim();
 
-        //quand je clique sur un bouton, je vois le contenu du champ
-        // console.log('content =', $('div#froala-editor').froalaEditor('html.get'));
+        // quand je clique sur un bouton, je vois le contenu du champ
+        // console.log('content =', $('div#froala-editor'));
         if (!description) { return; }
         this.fictionService.addFiction({ titre, description } as Fiction)
             .subscribe(fiction => {
-                // this.fictions.push(fiction);
+                this.fictions.push(fiction);
             });
+        console.log('Ajout d\'une fiction');
+        console.log($('.modal.content'));
+        // close modale
     }
 }
