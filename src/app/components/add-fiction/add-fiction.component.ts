@@ -51,7 +51,7 @@ export class AddFictionComponent implements OnInit {
                 this.fictions.push(fiction);
             });
         console.log('Ajout d\'une fiction');
-        console.log($('.modal.content'));
+        // console.log($('.modal.content'));
         // close modale
     }
 }
