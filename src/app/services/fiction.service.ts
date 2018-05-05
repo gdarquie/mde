@@ -37,7 +37,7 @@ export class FictionService {
     putFiction(fiction: Fiction): Observable<Fiction> {
         console.log('Modification');
         return this.http.put<Fiction>(this.fictionsUrl, fiction, httpOptions).pipe(
-            catchError(this.handleError<Fiction>('addFiction'))
+            catchError(this.handleError<Fiction>('putFiction'))
         );
     }
 

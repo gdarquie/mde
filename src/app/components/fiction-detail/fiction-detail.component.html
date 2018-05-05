@@ -1,14 +1,40 @@
 <div class="row">
 
-    <div class="col s6">
+    <div class="col-md-4">
         <h1>{{fiction.titre}}</h1>
         <p>{{fiction.id}} - {{fiction.uuid}}</p>
         <p>timestamp = {{fiction.dateCreation.timestamp | date : 'yyyy-MM-dd HH:mm:ss Z' }}</p>
         <p>{{fiction.description}}</p>
     </div>
 
-    <div class="col s3">
+    <div class="col-md-8">
 
+        <h1>Personnages & évènements</h1>
+
+        <!--<p>{{textareaContent}}</p>-->
+
+        <form>
+            <input type="text" name="titre" placeholder="Surnom" [(ngModel)]="titre">
+            <br>
+            <textarea name="description" id="" cols="30" rows="10" placeholder="Description" [(ngModel)]="description"></textarea>
+            <br>
+            <input type="number" name="annee_naissance" [(ngModel)]="annee_naissance">
+            <br>
+            <input type="number" name="annee_mort" [(ngModel)]="annee_mort">
+            <!--<div [froalaEditor]='options' [(froalaModel)]='editorContent' >-->
+                <!--En test-->
+            <!--</div>-->
+            <br>
+            <input type="submit" value="Créer" (click)="addPersonnage(titre, description, annee_naissance, annee_mort);">
+        </form>
+
+        <div *ngFor = "let personnage of fiction.personnages">
+            <h2>{{personnage.titre}}</h2>
+            <p>{{personnage.description}}</p>
+            <p>Né en {{personnage.annee_naissance}}, mort.e en {{personnage.annee_mort}}</p>
+            <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> -->
+        </div>
+        <hr>
         <h1>Textes</h1>
 
         <div *ngFor = "let texte of fiction.textes">
@@ -18,22 +44,13 @@
             <p>type : {{texte.type}}</p>
             <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> -->
         </div>
-
-    </div>
-
-    <div class="col s3">
-        <h1>Personnages & évènements</h1>
-        <div *ngFor = "let personnage of fiction.personnages">
-            <h2>{{personnage.titre}}</h2>
-            <p>{{personnage.description}}</p>
-            <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> -->
-        </div>
-
+        <hr>
         <div *ngFor = "let evenement of fiction.evenements">
             <h2>{{evenement.titre}}</h2>
             <p>{{evenement.description}}</p>
             <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> -->
         </div>
+
     </div>
 
 </div>
