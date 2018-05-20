@@ -1,4 +1,8 @@
 export class Personnage {
     id: number;
-    surnom: string;
+    titre: string;
+    description: string;
+    fiction: number;
+    annee_naissance?: number;
+    annee_mort?: number;
 }

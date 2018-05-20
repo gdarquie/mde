@@ -1,8 +1,19 @@
 <div class="row">
-    <div class="col-md-6">
-        <app-textes></app-textes>
-    </div>
-    <div class="col-md-6">
-        <app-projets></app-projets>
+    <div class="col-md-12">
+
+        <app-modal-component class="modal-lg"></app-modal-component>
+
+        <!--<div>-->
+            <!--<label>Description du fiction:-->
+                <!--Titre : <input #fictionTitre>-->
+                <!--Description : <input #fictionDescription />-->
+            <!--</label>-->
+            <!--&lt;!&ndash; (click) passes input value to add() and then clears the input &ndash;&gt;-->
+            <!--<button (click)="addFiction(fictionTitre.value, fictionDescription.value); fictionDescription.value=''">-->
+                <!--add-->
+            <!--</button>-->
+        <!--</div>-->
+
+        <app-fictions></app-fictions>
     </div>
 </div>
