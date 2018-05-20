@@ -17,11 +17,11 @@ export class FictionDetailComponent implements OnInit {
 
     titre: string = 'Nom';
     description: string = 'Description';
-
     fictionId: string;
     fiction: Fiction;
     personnages: Personnage[];
     personnage: Personnage;
+    private rootUrl = 'http://127.0.0.1:8000/';
 
     constructor(
         private http: HttpClient,
@@ -46,15 +46,23 @@ export class FictionDetailComponent implements OnInit {
             .subscribe(fiction => this.fiction = fiction);
     }
 
-
-    addPersonnage(titre: string, description: string, annee_naissance?: number, annee_mort?: number): void {
+    addPersonnage(titre: string, description: string, fiction: number, annee_naissance?: number, annee_mort?: number): void {
         titre = titre.trim();
         if (!titre) { return; }
-        this.personnageService.addPersonnage({ titre, description, annee_naissance, annee_mort } as Personnage)
+        this.personnageService.addPersonnage({ titre, description, fiction, annee_naissance, annee_mort } as Personnage)
             .subscribe(personnage => {
                 this.personnages.push(personnage);
             });
     }
+
+    removePersonnage = function(personnage) {
+        this.personnageService.deletePersonnage(personnage.id)
+            .subscribe(personnages => this.personnages = personnages.slice(0, 9));
+        const index = this.fictions.indexOf(personnage);
+        this.personnages.splice(index, 1);
+
+    };
+
 
 
 }

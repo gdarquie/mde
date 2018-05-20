@@ -18,11 +18,12 @@ export class PersonnageService {
 
     /** POST: ajouter un personnage */
     addPersonnage (personnage: Personnage): Observable<Personnage> {
-        return this.http.post<Personnage>(this.personnagesUrl + '/fiction=' + this.fictionId, personnage, httpOptions).pipe(
+        return this.http.post<Personnage>(this.personnagesUrl, personnage, httpOptions).pipe(
             catchError(this.handleError<Personnage>('addPersonnage'))
         );
     }
 
+    /** DELETE: ajouter un personnage */
     deletePersonnage (personnageId): Observable<Personnage> {
         return this.http.delete<Personnage>(this.personnagesUrl + '/' + personnageId, httpOptions).pipe(
             catchError(this.handleError<Personnage>('deleteFiction'))
