@@ -11,7 +11,9 @@ const httpOptions = {
 
 @Injectable()
 export class PersonnageService {
+
     private personnagesUrl = 'http://127.0.0.1:8000/personnages';
+
     constructor( private http: HttpClient ) { }
 
     fictionId = 1;

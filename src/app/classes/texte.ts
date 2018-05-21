@@ -1,5 +1,7 @@
 export class Texte {
     id: number;
     titre: string;
-    contenu: string;
+    description: string;
+    fiction: number;
+    type: string;
 }
