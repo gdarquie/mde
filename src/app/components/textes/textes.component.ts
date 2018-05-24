@@ -15,15 +15,15 @@ export class TextesComponent implements OnInit {
     constructor(private http: HttpClient, private texteService: TexteService) { }
 
     ngOnInit() {
-        this.getTextes();
+        // this.getTextes();
     }
 
-    getTextes(): void {
-        this.texteService.getTextes()
-            .subscribe(textes => this.textes = textes.slice(1, 10));
-    }
+    // getTextes(): void {
+    //     this.texteService.getTextes()
+    //         .subscribe(textes => this.textes = textes.slice(1, 10));
+    // }
 
-    onSelect(texte: Texte): void{
+    onSelect(texte: Texte): void {
         this.selectedTexte = texte;
         console.log(this.selectedTexte.contenu);
     }

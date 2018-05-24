@@ -13,46 +13,55 @@ const httpOptions = {
 @Injectable()
 export class TexteService {
 
-    private textesUrl = 'http://127.0.0.1:8000/textes';
+  private textesUrl = 'http://127.0.0.1:8000/textes';
 
-    constructor( private http: HttpClient ) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
-    getTextes(): Observable<Texte[]> {
-        return this.http.get<Texte[]>(this.textesUrl);
-    }
+  getTextes(fictionId): Observable<Texte[]> {
+      return this.http.get<Texte[]>(this.textesUrl);
+  }
 
-    /** POST: add a texte */
-    addTexte (texte: Texte): Observable<Texte> {
-      return this.http.post<Texte>(this.textesUrl, texte, httpOptions).pipe(
-        catchError(this.handleError<Texte>('addTexte'))
-      );
-    }
+  /** POST: créer un texte */
+  addTexte (texte: Texte): Observable<Texte> {
+    return this.http.post<Texte>(this.textesUrl, texte, httpOptions).pipe(
+      catchError(this.handleError<Texte>('addTexte'))
+    );
+  }
 
-    /** DELETE: supprimer un texte */
-    deleteTexte (texteId): Observable<Texte> {
-      return this.http.delete<Texte>(this.textesUrl + '/' + texteId, httpOptions).pipe(
-        catchError(this.handleError<Texte>('deleteTexte'))
-      );
-    }
+  /** PUT: mettre à jour un texte */
+  updateTexte (texte: Texte): Observable<any> {
+    return this.http.put(this.textesUrl, texte, httpOptions).pipe(
+      catchError(this.handleError<any>('updateTexte'))
+    );
+  }
 
-    /**
-     * Handle Http operation that failed.
-     * Let the app continue.
-     * @param operation - name of the operation that failed
-     * @param result - optional value to return as the observable result
-     */
-    private handleError<T> (operation = 'operation', result?: T) {
-      return (error: any): Observable<T> => {
+  /** DELETE: supprimer un texte */
+  deleteTexte (texteId): Observable<Texte> {
+    return this.http.delete<Texte>(this.textesUrl + '/' + texteId, httpOptions).pipe(
+      catchError(this.handleError<Texte>('deleteTexte'))
+    );
+  }
 
-        // TODO: send the error to remote logging infrastructure
-        console.error(error); // log to console instead
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
 
-        // TODO: better job of transforming error for user consumption
-        // this.log(`${operation} failed: ${error.message}`);
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
 
-        // Let the app keep running by returning an empty result.
-        return of(result as T);
-      };
-    }
+      // TODO: better job of transforming error for user consumption
+      // this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
 
 }
