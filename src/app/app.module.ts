@@ -10,7 +10,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { TextesComponent } from './components/textes/textes.component';
 import { TexteService } from './services/texte.service';
 import { PersonnageService } from './services/personnage.service';
 import { AddFictionComponent } from './components/add-fiction/add-fiction.component';
@@ -25,7 +24,6 @@ import { PageAccueilComponent } from './pages/page-accueil/page-accueil.componen
 @NgModule({
   declarations: [
     AppComponent,
-    TextesComponent,
     FictionsComponent,
     PageAccueilComponent,
     FictionDetailComponent,

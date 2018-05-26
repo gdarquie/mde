@@ -9,6 +9,7 @@ import { Personnage } from '../../classes/personnage';
 import { Evenement } from '../../classes/evenement';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-fiction-detail',
@@ -40,9 +41,9 @@ export class FictionDetailComponent implements OnInit {
   ngOnInit() {
       this.getFictionId();
       this.getFiction(this.fictionId);
-      this.getTextes();
+      this.getTextes(this.fictionId);
+      this.getPersonnages(this.fictionId);
   }
-
 
   goBack(): void {
     this.location.back();
@@ -59,26 +60,10 @@ export class FictionDetailComponent implements OnInit {
           .subscribe(fiction => this.fiction = fiction);
   };
 
-  addPersonnage(titre: string, description: string, fiction: number, annee_naissance?: number, annee_mort?: number): void {
-      titre = titre.trim();
-      if (!titre) { return; }
-      this.personnageService.addPersonnage({ titre, description, fiction, annee_naissance, annee_mort } as Personnage)
-          .subscribe(personnage => {
-              this.personnages.push(personnage);
-          });
-  }
-
-  removePersonnage = function(personnage) {
-      this.personnageService.deletePersonnage(personnage.id)
-          .subscribe(personnages => this.personnages = personnages.slice(0, 9));
-      const index = this.fictions.indexOf(personnage);
-      this.personnages.splice(index, 1);
+  getTextes(fictionId): object {
+    return this.texteService.getTextes(fictionId)
+      .subscribe(textes => this.textes = textes.slice(0, 9));
   };
-
-  getTextes() {
-      let fiction = this.getFiction(1);
-      console.log(fiction);
-  }
 
   addTexte(titre: string, description: string, fiction: number, type: string): void {
     titre = titre.trim();
@@ -92,19 +77,40 @@ export class FictionDetailComponent implements OnInit {
   }
 
   deleteTexte = function(texte: Texte): void {
-    // this.textes = this.textes.filter(t => t !== texte);
+    this.textes = this.textes.filter(t => t !== texte);
     this.texteService.deleteTexte(texte.id)
       .subscribe(textes => this.textes = textes.slice(0, 9));
-    // const index = this.textes.indexOf(texte);
-    // this.textes.push(texte);
-
-    console.log('Texte supprimé');
-    console.log(this.textes);
-    // this.textes = this.textes.filter(texte => texte.id != texte.id);
   };
 
   saveTexte(): void {
     this.texteService.updateTexte(this.texte)
       .subscribe(() => this.goBack());
   }
+
+  addPersonnage(titre: string, description: string, fiction: number, annee_naissance?: number, annee_mort?: number): void {
+    titre = titre.trim();
+    if (!titre) { return; }
+    this.personnageService.addPersonnage({ titre, description, fiction, annee_naissance, annee_mort } as Personnage)
+      .subscribe(personnage => {
+        this.personnages.push(personnage);
+      });
+  }
+
+  deletePersonnage = function(personnage: Personnage): void {
+    this.personnages = this.personnages.filter(p => p !== personnage);
+    this.personnageService.deletePersonnage(personnage.id)
+      .subscribe(personnages => this.personnages = personnages.slice(0, 9));
+  };
+
+  getPersonnages(fictionId): object {
+    return this.personnageService.getPersonnages(fictionId)
+      .subscribe(personnages => this.personnages = personnages.slice(0, 29));
+  };
+
+  getEvenements(fictionId): object {
+    return this.evenementService.getEvenements(fictionId)
+      .subscribe(evenements => this.textes = evenements.slice(0, 9));
+  };
+
+
 }

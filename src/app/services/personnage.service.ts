@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
+import {Texte} from "../classes/texte";
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
@@ -16,7 +17,13 @@ export class PersonnageService {
 
     constructor( private http: HttpClient ) { }
 
-    fictionId = 1;
+    /** All personnages for one fiction */
+    getPersonnages(fictionId): Observable<Personnage[]> {
+      return this.http.get<Personnage[]>(this.personnagesUrl + '/fiction/' + fictionId)
+        .pipe(
+          catchError(this.handleError('getPersonnages', []))
+        );
+    }
 
     /** POST: ajouter un personnage */
     addPersonnage (personnage: Personnage): Observable<Personnage> {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TextesComponent} from '../../components/textes/textes.component';
 
 @Component({
   selector: 'app-page-accueil',

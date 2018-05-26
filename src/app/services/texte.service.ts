@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import {Personnage} from "../classes/personnage";
+import {Fiction} from "../classes/fiction";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
@@ -13,14 +14,19 @@ const httpOptions = {
 @Injectable()
 export class TexteService {
 
+  private url = 'http://127.0.0.1:8000';
   private textesUrl = 'http://127.0.0.1:8000/textes';
 
   constructor(
     private http: HttpClient
   ) { }
 
+  /** All textes for one fiction */
   getTextes(fictionId): Observable<Texte[]> {
-      return this.http.get<Texte[]>(this.textesUrl);
+      return this.http.get<Texte[]>(this.textesUrl + '/fiction/' + fictionId)
+        .pipe(
+          catchError(this.handleError('getTextes', []))
+        );
   }
 
   /** POST: créer un texte */

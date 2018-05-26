@@ -1,9 +1,0 @@
-<h1>Textes</h1>
-<div *ngFor = "let texte of textes">
-    <div class="carte-item card">
-        <h2>{{texte.id}}. {{ texte.titre }}</h2>
-        <p>{{ texte.contenu }}</p>
-        <p (click)="onSelect(texte)" [class.selected]="texte===selectedTexte">Lire le texte</p>
-    </div>
-</div>
-
