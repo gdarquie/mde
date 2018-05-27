@@ -10,6 +10,7 @@
     </article>
 
     <ngb-tabset>
+
       <ngb-tab title="textes">
         <ng-template ngbTabContent>
           <div class="row col-md-12">
@@ -47,15 +48,18 @@
       <ngb-tab>
         <ng-template ngbTabTitle>évènements</ng-template>
         <ng-template ngbTabContent>
-          <div *ngFor = "let evenement of evenements" class="card item-card">
-            <h2>{{evenement.titre}}</h2>
-            <p>{{evenement.description}}</p>
-            <button type="button" (click)="updateEvenement(evenement);" class="btn btn-outline-dark">Editer</button>
-            <button type="button" (click)="deleteEvenement(evenement);" class="btn btn-outline-dark">Supprimer</button>
-            <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> -->
+          <div class="row col-md-12">
+            <div *ngFor = "let evenement of evenements" class="item-card col-md-12">
+              <h2>{{evenement.titre}}</h2>
+              <p>{{evenement.description}}</p>
+              <button type="button" (click)="updateEvenement(evenement);" class="btn btn-outline-dark">Editer</button>
+              <button type="button" (click)="deleteEvenement(evenement);" class="btn btn-outline-dark">Supprimer</button>
+              <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> -->
+            </div>
           </div>
         </ng-template>
       </ngb-tab>
+
     </ngb-tabset>
 
   </div>
