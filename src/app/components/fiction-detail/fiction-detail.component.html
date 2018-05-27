@@ -36,7 +36,7 @@
                 <p>{{personnage.description}}</p>
                 <p>Né en {{personnage.annee_naissance}}, mort.e en {{personnage.annee_mort}}</p>
                 <button type="button" (click)="updatePersonnage(personnage);" class="btn btn-outline-dark">Editer</button>
-                <button type="button" (click)="deletePersonnage(personnage.id);" class="btn btn-outline-dark">Supprimer</button>
+                <button type="button" (click)="deletePersonnage(personnage);" class="btn btn-outline-dark">Supprimer</button>
                 <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> -->
               </article>
             </div>
@@ -50,6 +50,8 @@
           <div *ngFor = "let evenement of evenements" class="card item-card">
             <h2>{{evenement.titre}}</h2>
             <p>{{evenement.description}}</p>
+            <button type="button" (click)="updateEvenement(evenement);" class="btn btn-outline-dark">Editer</button>
+            <button type="button" (click)="deleteEvenement(evenement);" class="btn btn-outline-dark">Supprimer</button>
             <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> -->
           </div>
         </ng-template>
@@ -105,9 +107,9 @@
         <ng-template ngbTabContent>
           <form #formAddEvenement="ngForm">
             <div class="form-group">
-              <input class="form-control" type="text" name="titre" placeholder="Surnom" [(ngModel)]="titre">
+              <input class="form-control" type="text" name="titre" placeholder="évènement" [(ngModel)]="titre">
               <br>
-              <textarea class="form-control" name="description" cols="30" rows="10" placeholder="Description" [(ngModel)]="description"></textarea>
+              <textarea class="form-control" name="description" cols="30" rows="10" placeholder="description" [(ngModel)]="description"></textarea>
               <br>
               <button type="button" (click)="addEvenement(titre, description, fiction.id);" class="btn btn-primary">Créer un évènement</button>
             </div>

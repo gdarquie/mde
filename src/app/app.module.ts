@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 
 import { TexteService } from './services/texte.service';
 import { PersonnageService } from './services/personnage.service';
+import { EvenementService } from './services/evenement.service';
+
 import { AddFictionComponent } from './components/add-fiction/add-fiction.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -42,7 +44,7 @@ import { PageAccueilComponent } from './pages/page-accueil/page-accueil.componen
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [TexteService, FictionService, PersonnageService],
+  providers: [TexteService, FictionService, PersonnageService, EvenementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
