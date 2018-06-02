@@ -168,12 +168,12 @@ export class FictionDetailComponent implements OnInit {
   }
 
   /**
-   * @param {Texte} texte
+   * @param {Evenement} evenement
    */
-  deleteEvenement = function(texte: Texte): void {
-    this.textes = this.textes.filter(t => t !== texte);
-    this.texteService.deleteTexte(texte.id)
-      .subscribe(textes => this.textes = textes.slice(0, 9));
+  deleteEvenement = function(evenement: Evenement): void {
+    this.evenements = this.evenements.filter(t => t !== evenement);
+    this.evenementService.deleteEvenement(evenement.id)
+      .subscribe(evenements => this.evenements = evenements.slice(0, 9));
   };
 
 }
