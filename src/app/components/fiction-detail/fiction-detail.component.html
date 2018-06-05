@@ -1,128 +1,138 @@
 <div class="row">
 
-  <div class="col-md-5 fiction-info">
+  <header class="col-md-12">
+    <h1>{{fiction.titre}}</h1>
 
-    <article>
-      <h1>{{fiction.titre}}</h1>
-      <p>{{fiction.id}} - {{fiction.uuid}}</p>
-      <p>timestamp = {{fiction.dateCreation.timestamp | date : 'yyyy-MM-dd HH:mm:ss Z' }}</p>
-      <p>{{fiction.description}}</p>
-    </article>
+      textes
+      personnages
+      évènements
+      plan
 
-    <ngb-tabset>
+  </header>
 
-      <ngb-tab title="textes">
-        <ng-template ngbTabContent>
-          <div class="row col-md-12">
-            <div *ngFor = "let texte of textes" class="item-card col-md-12">
-              <h2>{{texte.id}} - {{texte.titre}}</h2>
-              <p>uuid : {{texte.uuid}}</p>
-              <p>description : {{texte.description}}</p>
-              <p>type : {{texte.type}}</p>
-              <button type="button" (click)="updateTexte(texte);" class="btn btn-outline-dark">Editer</button>
-              <button type="button" (click)="deleteTexte(texte);" class="btn btn-outline-dark">Supprimer</button>
-              <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> -->
-            </div>
-          </div>
-        </ng-template>
-      </ngb-tab>
+  <!--<div class="col-md-5 fiction-info">-->
 
-      <ngb-tab >
-        <ng-template ngbTabTitle>personnages</ng-template>
-        <ng-template ngbTabContent>
-          <div class="row col-md-12">
-            <div *ngFor = "let personnage of personnages" class="col-md-6">
-              <article class="item-card">
-                <h2>{{personnage.titre}}</h2>
-                <p>{{personnage.description}}</p>
-                <p>Né en {{personnage.annee_naissance}}, mort.e en {{personnage.annee_mort}}</p>
-                <button type="button" (click)="updatePersonnage(personnage);" class="btn btn-outline-dark">Editer</button>
-                <button type="button" (click)="deletePersonnage(personnage);" class="btn btn-outline-dark">Supprimer</button>
-                <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> -->
-              </article>
-            </div>
-          </div>
-        </ng-template>
-      </ngb-tab>
+    <!--<article>-->
+      <!--<h1>{{fiction.titre}}</h1>-->
+      <!--<p>{{fiction.id}} - {{fiction.uuid}}</p>-->
+      <!--<p>timestamp = {{fiction.dateCreation.timestamp | date : 'yyyy-MM-dd HH:mm:ss Z' }}</p>-->
+      <!--<p>{{fiction.description}}</p>-->
+    <!--</article>-->
 
-      <ngb-tab>
-        <ng-template ngbTabTitle>évènements</ng-template>
-        <ng-template ngbTabContent>
-          <div class="row col-md-12">
-            <div *ngFor = "let evenement of evenements" class="item-card col-md-12">
-              <h2>{{evenement.titre}}</h2>
-              <p>{{evenement.description}}</p>
-              <button type="button" (click)="updateEvenement(evenement);" class="btn btn-outline-dark">Editer</button>
-              <button type="button" (click)="deleteEvenement(evenement);" class="btn btn-outline-dark">Supprimer</button>
-              <!-- <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> -->
-            </div>
-          </div>
-        </ng-template>
-      </ngb-tab>
+    <!--<ngb-tabset>-->
 
-    </ngb-tabset>
+      <!--<ngb-tab title="textes">-->
+        <!--<ng-template ngbTabContent>-->
+          <!--<div class="row col-md-12">-->
+            <!--<div *ngFor = "let texte of textes" class="item-card col-md-12">-->
+              <!--<h2>{{texte.id}} - {{texte.titre}}</h2>-->
+              <!--<p>uuid : {{texte.uuid}}</p>-->
+              <!--<p>description : {{texte.description}}</p>-->
+              <!--<p>type : {{texte.type}}</p>-->
+              <!--<button type="button" (click)="updateTexte(texte);" class="btn btn-outline-dark">Editer</button>-->
+              <!--<button type="button" (click)="deleteTexte(texte);" class="btn btn-outline-dark">Supprimer</button>-->
+              <!--&lt;!&ndash; <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> &ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</ng-template>-->
+      <!--</ngb-tab>-->
 
-  </div>
+      <!--<ngb-tab >-->
+        <!--<ng-template ngbTabTitle>personnages</ng-template>-->
+        <!--<ng-template ngbTabContent>-->
+          <!--<div class="row col-md-12">-->
+            <!--<div *ngFor = "let personnage of personnages" class="col-md-6">-->
+              <!--<article class="item-card">-->
+                <!--<h2>{{personnage.titre}}</h2>-->
+                <!--<p>{{personnage.description}}</p>-->
+                <!--<p>Né en {{personnage.annee_naissance}}, mort.e en {{personnage.annee_mort}}</p>-->
+                <!--<button type="button" (click)="updatePersonnage(personnage);" class="btn btn-outline-dark">Editer</button>-->
+                <!--<button type="button" (click)="deletePersonnage(personnage);" class="btn btn-outline-dark">Supprimer</button>-->
+                <!--&lt;!&ndash; <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> &ndash;&gt;-->
+              <!--</article>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</ng-template>-->
+      <!--</ngb-tab>-->
+
+      <!--<ngb-tab>-->
+        <!--<ng-template ngbTabTitle>évènements</ng-template>-->
+        <!--<ng-template ngbTabContent>-->
+          <!--<div class="row col-md-12">-->
+            <!--<div *ngFor = "let evenement of evenements" class="item-card col-md-12">-->
+              <!--<h2>{{evenement.titre}}</h2>-->
+              <!--<p>{{evenement.description}}</p>-->
+              <!--<button type="button" (click)="updateEvenement(evenement);" class="btn btn-outline-dark">Editer</button>-->
+              <!--<button type="button" (click)="deleteEvenement(evenement);" class="btn btn-outline-dark">Supprimer</button>-->
+              <!--&lt;!&ndash; <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> &ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</ng-template>-->
+      <!--</ngb-tab>-->
+
+    <!--</ngb-tabset>-->
+
+  <!--</div>-->
 
 
-  <div class="col-md-7">
+  <!--<div class="col-md-7">-->
 
-    <h1>{{fiction.titre}} - Ajout d'élément</h1>
-    <ngb-tabset>
-      <ngb-tab title="textes">
-        <ng-template ngbTabContent>
-          <form #formAddTexte="ngForm">
-            <div class="form-group">
-              <input class="form-control" type="text" name="titre" placeholder="Titre" [(ngModel)]="titre">
-              <br>
-              <textarea class="form-control" name="description" cols="30" rows="10" placeholder="Description" [(ngModel)]="description"></textarea>
+    <!--<h1>{{fiction.titre}} - Ajout d'élément</h1>-->
+    <!--<ngb-tabset>-->
+      <!--<ngb-tab title="textes">-->
+        <!--<ng-template ngbTabContent>-->
+          <!--<form #formAddTexte="ngForm">-->
+            <!--<div class="form-group">-->
+              <!--<input class="form-control" type="text" name="titre" placeholder="Titre" [(ngModel)]="titre">-->
+              <!--<br>-->
+              <!--<textarea class="form-control" name="description" cols="30" rows="10" placeholder="Description" [(ngModel)]="description"></textarea>-->
 
-              <!--<div [froalaEditor]='options' [(froalaModel)]='editorContent' >-->
-              <!--En test-->
-              <!--</div>-->
-              <br>
-              <button type="button" (click)="addTexte(titre, description, fiction.id); titre.value =''; formAddTexte.reset()" class="btn btn-primary">Créer un texte</button>
-            </div>
-          </form>
-        </ng-template>
-      </ngb-tab>
+              <!--&lt;!&ndash;<div [froalaEditor]='options' [(froalaModel)]='editorContent' >&ndash;&gt;-->
+              <!--&lt;!&ndash;En test&ndash;&gt;-->
+              <!--&lt;!&ndash;</div>&ndash;&gt;-->
+              <!--<br>-->
+              <!--<button type="button" (click)="addTexte(titre, description, fiction.id); titre.value =''; formAddTexte.reset()" class="btn btn-primary">Créer un texte</button>-->
+            <!--</div>-->
+          <!--</form>-->
+        <!--</ng-template>-->
+      <!--</ngb-tab>-->
 
-      <ngb-tab >
-        <ng-template ngbTabTitle>Personnages</ng-template>
-        <ng-template ngbTabContent>
-          <form #formAddPersonnage="ngForm">
-            <div class="form-group">
-              <input class="form-control" type="text" name="titre" placeholder="Surnom" [(ngModel)]="titre">
-              <br>
-              <textarea class="form-control" name="description" cols="30" rows="10" placeholder="Description" [(ngModel)]="description"></textarea>
-              <br>
-              <input class="form-control" type="number" name="annee_naissance" placeholder="Année de naissance" [(ngModel)]="annee_naissance" value = "0">
-              <br>
-              <input class="form-control" type="number" name="annee_mort" placeholder="Année de mort" [(ngModel)]="annee_mort">
-              <br>
-              <button type="button" (click)="addPersonnage(titre, description, fiction.id, annee_naissance, annee_mort);" class="btn btn-primary">Créer un personnage</button>
-            </div>
-          </form>
-        </ng-template>
-      </ngb-tab>
+      <!--<ngb-tab >-->
+        <!--<ng-template ngbTabTitle>Personnages</ng-template>-->
+        <!--<ng-template ngbTabContent>-->
+          <!--<form #formAddPersonnage="ngForm">-->
+            <!--<div class="form-group">-->
+              <!--<input class="form-control" type="text" name="titre" placeholder="Surnom" [(ngModel)]="titre">-->
+              <!--<br>-->
+              <!--<textarea class="form-control" name="description" cols="30" rows="10" placeholder="Description" [(ngModel)]="description"></textarea>-->
+              <!--<br>-->
+              <!--<input class="form-control" type="number" name="annee_naissance" placeholder="Année de naissance" [(ngModel)]="annee_naissance" value = "0">-->
+              <!--<br>-->
+              <!--<input class="form-control" type="number" name="annee_mort" placeholder="Année de mort" [(ngModel)]="annee_mort">-->
+              <!--<br>-->
+              <!--<button type="button" (click)="addPersonnage(titre, description, fiction.id, annee_naissance, annee_mort);" class="btn btn-primary">Créer un personnage</button>-->
+            <!--</div>-->
+          <!--</form>-->
+        <!--</ng-template>-->
+      <!--</ngb-tab>-->
 
-      <ngb-tab>
-        <ng-template ngbTabTitle>évènements</ng-template>
-        <ng-template ngbTabContent>
-          <form #formAddEvenement="ngForm">
-            <div class="form-group">
-              <input class="form-control" type="text" name="titre" placeholder="évènement" [(ngModel)]="titre">
-              <br>
-              <textarea class="form-control" name="description" cols="30" rows="10" placeholder="description" [(ngModel)]="description"></textarea>
-              <br>
-              <button type="button" (click)="addEvenement(titre, description, fiction.id);" class="btn btn-primary">Créer un évènement</button>
-            </div>
-          </form>
-        </ng-template>
-      </ngb-tab>
-    </ngb-tabset>
+      <!--<ngb-tab>-->
+        <!--<ng-template ngbTabTitle>évènements</ng-template>-->
+        <!--<ng-template ngbTabContent>-->
+          <!--<form #formAddEvenement="ngForm">-->
+            <!--<div class="form-group">-->
+              <!--<input class="form-control" type="text" name="titre" placeholder="évènement" [(ngModel)]="titre">-->
+              <!--<br>-->
+              <!--<textarea class="form-control" name="description" cols="30" rows="10" placeholder="description" [(ngModel)]="description"></textarea>-->
+              <!--<br>-->
+              <!--<button type="button" (click)="addEvenement(titre, description, fiction.id);" class="btn btn-primary">Créer un évènement</button>-->
+            <!--</div>-->
+          <!--</form>-->
+        <!--</ng-template>-->
+      <!--</ngb-tab>-->
+    <!--</ngb-tabset>-->
 
-  </div>
+  <!--</div>-->
 
 </div>
 

@@ -35,3 +35,8 @@
 .fiction-info .nav-tabs{
   margin-top: 10px;
 }
+
+header h1 {
+  font-size: 1.5em;
+  display:inline-block;
+}

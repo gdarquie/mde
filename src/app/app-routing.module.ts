@@ -7,6 +7,10 @@ import { PageFictionDetailComponent} from './pages/page-fiction-detail/page-fict
 const routes: Routes = [
     { path: 'accueil', component: PageAccueilComponent },
     { path: 'fiction/:id', component: PageFictionDetailComponent },
+    { path: 'fiction/:id/textes', component: PageFictionDetailComponent },
+    { path: 'fiction/:id/personnages', component: PageFictionDetailComponent },
+    { path: 'fiction/:id/evenements', component: PageFictionDetailComponent },
+    { path: 'fiction/:id/plan', component: PageFictionDetailComponent },
     // { path: 'fiction/:id/plan', component: PageFictionPlanComponent },
     { path: '', redirectTo: '/accueil', pathMatch: 'full' },
 ];
