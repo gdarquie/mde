@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Personnage } from '../classes/personnage';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable ,  of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
 import {Texte} from "../classes/texte";
 
 const httpOptions = {
