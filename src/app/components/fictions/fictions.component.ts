@@ -3,6 +3,11 @@ import { Fiction } from '../../classes/fiction';
 import { FictionService} from '../../services/fiction.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {trigger, style, transition, animate, keyframes, query, stagger} from "@angular/animations";
+import {MatDialog} from '@angular/material';
+
+import {ModalComponent} from '../../components/modal/modal.component';
+import {ModalEditionComponent} from '../../components/modal-edition/modal-edition.component';
+
 
 @Component({
     selector: 'app-fictions',
@@ -29,7 +34,7 @@ export class FictionsComponent implements OnInit {
     displayText: string = 'Display Texte';
     buttonText: string = 'Valider';
 
-    constructor(private http: HttpClient, private fictionService: FictionService) { }
+    constructor(private http: HttpClient, private fictionService: FictionService, public dialog: MatDialog) { }
 
     ngOnInit() {
         this.getFictions();
@@ -51,6 +56,17 @@ export class FictionsComponent implements OnInit {
             });
     }
 
+    editFiction(fiction) {
+      console.log('Edition de la fiction = '+fiction.id);
+      let titre = fiction.titre;
+      let description = fiction.description;
+      console.log(titre+' et '+description);
+      this.dialog.open(ModalEditionComponent, {
+        width: '650px',
+      });
+
+    }
+
     removeFiction = function(fiction) {
         this.fictionService.deleteFiction(fiction.id)
             .subscribe(fictions => this.fictions = fictions.slice(0, 9));
@@ -58,5 +74,11 @@ export class FictionsComponent implements OnInit {
         this.fictions.splice(index, 1);
 
     };
+
+    openDialog(): void {
+    let dialogRef = this.dialog.open(ModalComponent, {
+      width: '650px',
+    });
+  }
 
 }

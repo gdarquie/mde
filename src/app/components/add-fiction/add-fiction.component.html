@@ -1,15 +1,24 @@
 <div>
-    <label>Description de la fiction:
-        <input #fictionDescription />
-    </label>
+    <!--<label>Description de la fiction:-->
+        <!--&lt;!&ndash;<input matInput [(ngModel)]="name" placeholder="Titre" #fictionTitre>&ndash;&gt;-->
+        <!--<input matInput [(ngModel)]="name" placeholder="Description" #fictionDescription>-->
+    <!--</label>-->
 
-    <!--https://github.com/froala/angular-froala-wysiwyg#usage-->
-    <!--<div [froalaEditor]='options' [(froalaModel)]='editorContent' >-->
-        <!--En test-->
-    <!--</div>-->
-
+  <mat-form-field>
+    <!--<input matInput placeholder="Titre" #fictionTitre>-->
+    <input matInput placeholder="Description" #fictionDescription>
+  </mat-form-field>
+  <br>
+  <button mat-button (click)="addFiction('test mde', fictionDescription.value);">
+    Créer une fiction
+  </button>
 </div>
 
-<button type="button" class="btn btn-outline-dark" (click)="addFiction('test mde', fictionDescription.value);">
-    add
-</button>
+
+
+
+<!--<mat-form-field>-->
+<!--<input matInput [(ngModel)]="name" placeholder="Titre" #fictionTitre>-->
+<!--<input matInput [(ngModel)]="name" placeholder="Description" #fictionDescription>-->
+<!--</mat-form-field>-->
+

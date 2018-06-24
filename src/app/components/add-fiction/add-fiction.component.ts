@@ -13,21 +13,6 @@ export class AddFictionComponent implements OnInit {
     fictions: Fiction[];
     content: string;
 
-    options: Object = {
-        editorClass: 'add-fiction-description',
-        placeholderText: 'Description du service',
-        charCounterCount: true,
-        events : {
-            'froalaEditor.keypress' : function(e, editor) {
-                if (editor.selection.get().anchorNode){
-                    this.content = editor.selection.get().anchorNode.data;
-                    console.log(this.content);
-                }
-            }
-        }
-    }
-
-
     constructor(private http: HttpClient, private fictionService: FictionService) {}
 
     ngOnInit() {

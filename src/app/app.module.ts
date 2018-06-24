@@ -14,6 +14,7 @@ import { EvenementService } from './services/evenement.service';
 
 import { AddFictionComponent } from './components/add-fiction/add-fiction.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { ModalEditionComponent } from './components/modal-edition/modal-edition.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { PageFictionDetailComponent } from './pages/page-fiction-detail/page-fiction-detail.component';
 import { FictionDetailComponent } from './components/fiction-detail/fiction-detail.component';
@@ -104,9 +105,10 @@ export class DemoMaterialModule {}
     MenuComponent,
     PageFictionDetailComponent,
     ModalComponent,
+    ModalEditionComponent,
     AddFictionComponent,
   ],
-  entryComponents: [ModalComponent],
+  entryComponents: [ModalComponent, ModalEditionComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
