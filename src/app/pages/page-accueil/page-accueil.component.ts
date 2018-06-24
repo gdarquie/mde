@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {ModalComponent} from '../../components/modal/modal.component';
 
 @Component({
   selector: 'app-page-accueil',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageAccueilComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
   }
 
+  animal: string;
+  name: string;
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(ModalComponent, {
+      width: '650px',
+      data: { name: this.name, animal: this.animal }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
 }
+

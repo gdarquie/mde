@@ -1,24 +1,25 @@
 <h1>Fictions</h1>
 
-<div [@goals]>
-    <form>
-        <input type="text" name="items" placeholder="Premier test" [(ngModel)]="displayText">
-        <br>
-        <span>{{ displayText }}</span>
-        <br>
-        <input type="submit" [value]="buttonText">
-    </form>
-</div>
+<!--<div [@goals]>-->
+    <!--<form>-->
+        <!--<input type="text" name="items" placeholder="Premier test" [(ngModel)]="displayText">-->
+        <!--<br>-->
+        <!--<span>{{ displayText }}</span>-->
+        <!--<br>-->
+        <!--<input type="submit" [value]="buttonText">-->
+    <!--</form>-->
+<!--</div>-->
 
 
-<div *ngFor = "let fiction of fictions">
+<mat-card *ngFor = "let fiction of fictions">
     <div class="carte-item card">
         <h2>{{fiction.titre}}</h2>
         <p>{{fiction.id}} - {{fiction.uuid}}</p>
         <p>{{fiction.description}}</p>
-        <a class="btn" (click)="removeFiction(fiction)">Delete</a>
-        <a routerLink="/fiction/{{fiction.id}}">Voir le fiction</a>
+
+        <button mat-button (click)="removeFiction(fiction)">Delete</button>
+        <a routerLink="/fiction/{{fiction.id}}">Voir la fiction</a>
     </div>
-</div>
+</mat-card>
 
 
