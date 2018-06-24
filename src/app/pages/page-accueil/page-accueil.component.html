@@ -1,19 +1,35 @@
-<div class="row">
-    <div class="col-md-12">
 
-        <app-modal-component class="modal-lg"></app-modal-component>
+<mat-card>Simple card
+<ol>
+  <li>
+    <mat-form-field>
+      <input matInput [(ngModel)]="name" placeholder="What's your name?">
+    </mat-form-field>
+  </li>
+  <li>
+    <button mat-raised-button (click)="openDialog()">Pick one</button>
+  </li>
+  <li *ngIf="animal">
+    You chose: <i>{{animal}}</i>
+  </li>
+</ol>
+</mat-card>
 
-        <!--<div>-->
-            <!--<label>Description du fiction:-->
-                <!--Titre : <input #fictionTitre>-->
-                <!--Description : <input #fictionDescription />-->
-            <!--</label>-->
-            <!--&lt;!&ndash; (click) passes input value to add() and then clears the input &ndash;&gt;-->
-            <!--<button (click)="addFiction(fictionTitre.value, fictionDescription.value); fictionDescription.value=''">-->
-                <!--add-->
-            <!--</button>-->
-        <!--</div>-->
+<app-fictions></app-fictions>
 
-        <app-fictions></app-fictions>
-    </div>
-</div>
+<mat-card>
+  <mat-form-field>
+    <input matInput [(ngModel)]="name" placeholder="Titre" #fictionTitre>
+    <input matInput [(ngModel)]="name" placeholder="Description" #fictionDescription>
+  </mat-form-field>
+  <label>Description de la fiction:
+    <!--Titre : <input #fictionTitre>-->
+    <!--Description : <input #fictionDescription />-->
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="addFiction(fictionTitre.value, fictionDescription.value); fictionDescription.value=''">
+    add
+  </button>
+
+</mat-card>
+
