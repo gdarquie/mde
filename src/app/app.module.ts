@@ -4,8 +4,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,10 +37,7 @@ import { PageAccueilComponent } from './pages/page-accueil/page-accueil.componen
     HttpClientModule,
     AppRoutingModule,
     NgbModule.forRoot(),
-    FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot(),
     FormsModule,
-    BrowserAnimationsModule
   ],
   providers: [TexteService, FictionService, PersonnageService, EvenementService],
   bootstrap: [AppComponent]
