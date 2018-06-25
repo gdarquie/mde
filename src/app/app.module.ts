@@ -17,10 +17,8 @@ import { ModalComponent } from './components/modal/modal.component';
 import { ModalEditionComponent } from './components/modal-edition/modal-edition.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { PageFictionDetailComponent } from './pages/page-fiction-detail/page-fiction-detail.component';
-import { FictionDetailComponent } from './components/fiction-detail/fiction-detail.component';
-import { FictionService } from './services/fiction.service';
-import { FictionsComponent } from './components/fictions/fictions.component';
 import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
+import { FictionService } from './services/fiction.service';
 
 import {
   MatAutocompleteModule,
@@ -56,6 +54,8 @@ import {
   MatToolbarModule,
   MatTooltipModule,
 } from '@angular/material';
+import { PageFictionTextesComponent } from './pages/page-fiction-textes/page-fiction-textes.component';
+import { PageFictionPersonnagesComponent } from './pages/page-fiction-personnages/page-fiction-personnages.component';
 
 @NgModule({
   exports: [
@@ -92,16 +92,15 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-  ]
+  ],
+  declarations: [PageFictionTextesComponent, PageFictionPersonnagesComponent]
 })
 export class DemoMaterialModule {}
 
 @NgModule({
   declarations: [
     AppComponent,
-    FictionsComponent,
     PageAccueilComponent,
-    FictionDetailComponent,
     MenuComponent,
     PageFictionDetailComponent,
     ModalComponent,

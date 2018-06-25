@@ -1,0 +1,42 @@
+.fiction-info {
+  font-size: 0.7em;
+  line-height: 1em;
+}
+
+.fiction-info p {
+  margin : 3px;
+  padding : 1px;
+}
+
+.fiction-info h1 {
+  font-size: 2em;
+}
+
+.fiction-info h2 {
+  font-size: 1.5em;
+}
+
+.fiction-info .item-card {
+  margin-top: 10px;
+  padding: 10px 5px;
+  border: 1px solid #DFDFDF;
+  border-radius: 3px;
+}
+
+.fiction-info .btn {
+  padding: 1px 3px;
+  font-size: 1em;
+}
+
+.center {
+  text-align: center;
+}
+
+.fiction-info .nav-tabs{
+  margin-top: 10px;
+}
+
+header h1 {
+  font-size: 1.5em;
+  display:inline-block;
+}
