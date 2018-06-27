@@ -4,7 +4,7 @@ import {ModalComponent} from '../../components/modal/modal.component';
 import { Fiction } from '../../classes/fiction';
 import { FictionService} from '../../services/fiction.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {trigger, style, transition, animate, keyframes, query, stagger} from "@angular/animations";
+import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
 
 import {ModalEditionComponent} from '../../components/modal-edition/modal-edition.component';
 
@@ -64,6 +64,7 @@ export class PageAccueilComponent implements OnInit {
     console.log(titre+' et '+description);
     this.dialog.open(ModalEditionComponent, {
       width: '650px',
+      data: {fictionId: fiction.id}
     });
 
   }
@@ -78,7 +79,7 @@ export class PageAccueilComponent implements OnInit {
 
   openDialog(): void {
     let dialogRef = this.dialog.open(ModalComponent, {
-      width: '650px',
+      width: '650px'
     });
   }
 

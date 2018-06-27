@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Fiction } from '../../classes/fiction';
 import { FictionService} from '../../services/fiction.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {ModalComponent} from '../modal/modal.component';
 
 @Component({
   selector: 'app-add-fiction',
@@ -36,7 +37,14 @@ export class AddFictionComponent implements OnInit {
                 this.fictions.push(fiction);
             });
         console.log('Ajout d\'une fiction');
-        // console.log($('.modal.content'));
         // close modale
+
+        console.log(this.dialog);
+
+      // openDialog(): void {
+      //   let dialogRef = this.dialog.open(ModalComponent, {
+      //     width: '650px',
+      //   });
+    }
     }
 }

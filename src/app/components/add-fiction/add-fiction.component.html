@@ -5,11 +5,14 @@
     <!--</label>-->
 
   <mat-form-field>
-    <!--<input matInput placeholder="Titre" #fictionTitre>-->
+    <input matInput placeholder="Titre" #fictionTitre>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
     <input matInput placeholder="Description" #fictionDescription>
   </mat-form-field>
   <br>
-  <button mat-button (click)="addFiction('test mde', fictionDescription.value);">
+  <button mat-button (click)="addFiction(fictionTitre.value, fictionDescription.value);">
     Créer une fiction
   </button>
 </div>
