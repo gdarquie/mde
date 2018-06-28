@@ -3,6 +3,8 @@ import { Fiction } from '../../classes/fiction';
 import { FictionService } from '../../services/fiction.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import {PageAccueilComponent} from '../../pages/page-accueil/page-accueil.component';
+import {Observable} from 'rxjs';
+import {catchError} from 'rxjs/operators';
 
 @Component({
   selector: 'app-modal-edition',
@@ -33,13 +35,15 @@ export class ModalEditionComponent implements OnInit {
       .subscribe(fiction => this.fiction = fiction);
   };
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
 
-  editFiction(): void {
-    //edition
+  editFiction(fiction: Fiction): Observable<Fiction> {
+    this.fictionService.putFiction(this.texte)
+      .subscribe(() => this.goBack());
     console.log('Edition réussie');
+    this.dialogRef.close();
+    }
+
+  onNoClick(): void {
     this.dialogRef.close();
   }
 

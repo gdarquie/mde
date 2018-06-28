@@ -26,7 +26,7 @@ export class FictionService {
         );
     }
 
-    /** POST: add a fiction hero to the server */
+    /** POST: add a fiction to the server */
     addFiction (fiction: Fiction): Observable<Fiction> {
         return this.http.post<Fiction>(this.fictionsUrl, fiction, httpOptions).pipe(
             catchError(this.handleError<Fiction>('addFiction'))
