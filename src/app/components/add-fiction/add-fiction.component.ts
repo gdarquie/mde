@@ -45,6 +45,6 @@ export class AddFictionComponent implements OnInit {
       //   let dialogRef = this.dialog.open(ModalComponent, {
       //     width: '650px',
       //   });
-    }
+    // }
     }
 }
