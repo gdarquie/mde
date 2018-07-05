@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Fiction } from '../../classes/fiction';
 import { FictionService} from '../../services/fiction.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {ModalComponent} from '../modal/modal.component';
 import {MatDialogRef} from '@angular/material';
 
@@ -16,12 +16,13 @@ export class AddFictionComponent implements OnInit {
     fictions: Fiction[];
     content: string;
 
-    constructor(private http: HttpClient, private fictionService: FictionService,
-                public dialogRef: MatDialogRef<ModalComponent>
-                ) {}
+    constructor(
+      private http: HttpClient,
+      private fictionService: FictionService,
+      public dialogRef: MatDialogRef<ModalComponent>
+    ) {}
 
     ngOnInit() {
-        // console.log('Add fiction init lancé', this.content);
         this.getFictions();
         console.log(this.fictions);
     }
@@ -29,10 +30,6 @@ export class AddFictionComponent implements OnInit {
     getFictions(): void {
       this.fictionService.getFictions()
         .subscribe(fictions => this.fictions = fictions.slice(0, 9));
-    }
-
-    getFormContent() {
-        this.content = 'Récupération du contenu du form';
     }
 
   /**
@@ -51,8 +48,4 @@ export class AddFictionComponent implements OnInit {
             });
         this.dialogRef.close();
     }
-
-  onNoClick(): void {
-
-  }
 }
