@@ -4,6 +4,7 @@ import { FictionService} from '../../services/fiction.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {ModalComponent} from '../modal/modal.component';
 import {Texte} from '../../classes/texte';
+import {MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-add-fiction',
@@ -16,7 +17,9 @@ export class AddFictionComponent implements OnInit {
     fictions: Fiction[];
     content: string;
 
-    constructor(private http: HttpClient, private fictionService: FictionService) {}
+    constructor(private http: HttpClient, private fictionService: FictionService,
+                public dialogRef: MatDialogRef<ModalComponent>
+                ) {}
 
     ngOnInit() {
         // console.log('Add fiction init lancé', this.content);
@@ -47,13 +50,10 @@ export class AddFictionComponent implements OnInit {
             .subscribe(fiction => {
                 this.fictions.push(fiction);
             });
-
-        console.log('Ajout d\'une fiction');
-        // close modale
-      // openDialog(): void {
-      //   let dialogRef = this.dialog.open(ModalComponent, {
-      //     width: '650px',
-      //   });
-    // }
+        this.dialogRef.close();
     }
+
+  onNoClick(): void {
+
+  }
 }
