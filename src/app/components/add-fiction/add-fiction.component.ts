@@ -3,7 +3,6 @@ import { Fiction } from '../../classes/fiction';
 import { FictionService} from '../../services/fiction.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {ModalComponent} from '../modal/modal.component';
-import {Texte} from '../../classes/texte';
 import {MatDialogRef} from '@angular/material';
 
 @Component({

@@ -6,6 +6,7 @@ import {PageAccueilComponent} from '../../pages/page-accueil/page-accueil.compon
 import {Observable} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {Location} from '@angular/common';
+import {ModalComponent} from '../modal/modal.component';
 
 @Component({
   selector: 'app-modal-edition',
@@ -21,7 +22,7 @@ export class ModalEditionComponent implements OnInit {
   constructor(
     private fictionService: FictionService,
     private location: Location,
-    public dialogRef: MatDialogRef<PageAccueilComponent>,
+    public dialogRef: MatDialogRef<ModalEditionComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
@@ -42,14 +43,9 @@ export class ModalEditionComponent implements OnInit {
     const id = this.fiction.id;
     this.fictionService.putFiction({ id, titre, description } as Fiction)
       .subscribe(() => this.goBack());
-      // .subscribe(fictions => this.fictions);
     console.log('Edition réussie');
     this.dialogRef.close();
     }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
 
   goBack(): void {
     this.location.back();
