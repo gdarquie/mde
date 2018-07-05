@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <!--<label>Description de la fiction:-->
         <!--&lt;!&ndash;<input matInput [(ngModel)]="name" placeholder="Titre" #fictionTitre>&ndash;&gt;-->
         <!--<input matInput [(ngModel)]="name" placeholder="Description" #fictionDescription>-->
@@ -7,11 +7,12 @@
   <mat-form-field>
     <input matInput placeholder="Titre" #fictionTitre>
   </mat-form-field>
-  <br>
+
   <mat-form-field>
-    <input matInput placeholder="Description" #fictionDescription>
+    <textarea matInput placeholder="Description"  #fictionDescription></textarea>
   </mat-form-field>
-  <br>
+
+
   <button mat-button (click)="addFiction(fictionTitre.value, fictionDescription.value);">
     Créer une fiction
   </button>

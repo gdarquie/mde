@@ -5,6 +5,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import {PageAccueilComponent} from '../../pages/page-accueil/page-accueil.component';
 import {Observable} from 'rxjs';
 import {catchError} from 'rxjs/operators';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-modal-edition',
@@ -15,9 +16,11 @@ export class ModalEditionComponent implements OnInit {
 
   fictionId: string;
   fiction: Fiction;
+  fictions: Fiction[];
 
   constructor(
     private fictionService: FictionService,
+    private location: Location,
     public dialogRef: MatDialogRef<PageAccueilComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
@@ -33,12 +36,13 @@ export class ModalEditionComponent implements OnInit {
   getFiction(fictionId): object {
     return this.fictionService.getFiction(fictionId)
       .subscribe(fiction => this.fiction = fiction);
-  };
+  }
 
-
-  editFiction(fiction: Fiction): Observable<Fiction> {
-    this.fictionService.putFiction(this.texte)
+  editFiction(titre: string, description: string): void {
+    const id = this.fiction.id;
+    this.fictionService.putFiction({ id, titre, description } as Fiction)
       .subscribe(() => this.goBack());
+      // .subscribe(fictions => this.fictions);
     console.log('Edition réussie');
     this.dialogRef.close();
     }
@@ -46,5 +50,10 @@ export class ModalEditionComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  goBack(): void {
+    this.location.back();
+  }
+
 
 }

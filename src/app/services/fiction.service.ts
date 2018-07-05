@@ -3,6 +3,7 @@ import { Fiction } from '../classes/fiction';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable ,  of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import {Texte} from '../classes/texte';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
@@ -34,13 +35,13 @@ export class FictionService {
     }
 
     putFiction(fiction: Fiction): Observable<Fiction> {
-        console.log('Modification');
-        return this.http.put<Fiction>(this.fictionsUrl, fiction, httpOptions).pipe(
+        console.log('Modification de la fiction ' + fiction.id);
+        return this.http.put<Fiction>(this.fictionsUrl + '/' + fiction.id, fiction, httpOptions).pipe(
             catchError(this.handleError<Fiction>('putFiction'))
         );
     }
-
-    deleteFiction (fictionId): Observable<Fiction> {
+    
+  deleteFiction (fictionId): Observable<Fiction> {
         return this.http.delete<Fiction>(this.fictionsUrl + '/' + fictionId, httpOptions).pipe(
             catchError(this.handleError<Fiction>('deleteFiction'))
         );

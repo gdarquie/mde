@@ -71,7 +71,7 @@ export class PageAccueilComponent implements OnInit {
 
   removeFiction = function(fiction) {
     this.fictionService.deleteFiction(fiction.id)
-      .subscribe(fictions => this.fictions = fictions.slice(0, 9));
+      .subscribe(fictions => this.fictions );
     const index = this.fictions.indexOf(fiction);
     this.fictions.splice(index, 1);
 

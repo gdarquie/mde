@@ -1,13 +1,15 @@
-<div>
+<div class="container">
   <mat-form-field>
     <input matInput placeholder="Titre" value ='{{fiction.titre}}' #fictionTitre >
   </mat-form-field>
   <br>
+
   <mat-form-field>
-    <input matInput placeholder="Description" value ='{{fiction.description}}'  #fictionDescription>
+    <textarea matInput placeholder="Description" value ='{{fiction.description}}'  #fictionDescription></textarea>
   </mat-form-field>
+
   <br>
   <button mat-button (click)="editFiction(fictionTitre.value, fictionDescription.value)">
-    Créer une fiction
+    Editer la fiction
   </button>
 </div>
