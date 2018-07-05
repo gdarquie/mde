@@ -47,5 +47,13 @@ export class AddFictionComponent implements OnInit {
             .subscribe(fiction => {
                 this.fictions.push(fiction);
             });
+
+        console.log('Ajout d\'une fiction');
+        // close modale
+      // openDialog(): void {
+      //   let dialogRef = this.dialog.open(ModalComponent, {
+      //     width: '650px',
+      //   });
+    // }
     }
 }
