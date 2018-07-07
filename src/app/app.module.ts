@@ -13,6 +13,7 @@ import { PersonnageService } from './services/personnage.service';
 import { EvenementService } from './services/evenement.service';
 
 import { AddFictionComponent } from './components/add-fiction/add-fiction.component';
+import { EditFictionComponent } from './components/edit-fiction/edit-fiction.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { ModalEditionComponent } from './components/modal-edition/modal-edition.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -106,6 +107,7 @@ export class DemoMaterialModule {}
     ModalComponent,
     ModalEditionComponent,
     AddFictionComponent,
+    EditFictionComponent,
   ],
   entryComponents: [ModalComponent, ModalEditionComponent],
   imports: [

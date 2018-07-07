@@ -1,2 +1,11 @@
-<h2>{{titre}}</h2>
-<app-add-fiction></app-add-fiction>
+<h2>{{data.titre}}</h2>
+
+<!-- fictions -->
+
+<div *ngIf="data.isAjoutFiction">
+  <app-add-fiction></app-add-fiction>
+</div>
+
+<div *ngIf="data.isEditionFiction">
+  <app-edit-fiction></app-edit-fiction>
+</div>

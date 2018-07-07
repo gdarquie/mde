@@ -3,7 +3,7 @@ import {MatDialog } from '@angular/material';
 import {ModalComponent} from '../../components/modal/modal.component';
 import { Fiction } from '../../classes/fiction';
 import { FictionService} from '../../services/fiction.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
 
 import {ModalEditionComponent} from '../../components/modal-edition/modal-edition.component';
@@ -62,9 +62,21 @@ export class PageAccueilComponent implements OnInit {
     let titre = fiction.titre;
     let description = fiction.description;
     console.log(titre+' et '+description);
-    this.dialog.open(ModalEditionComponent, {
+    // this.dialog.open(ModalEditionComponent, {
+    //   width: '650px',
+    //   data: {
+    //     titre: 'Edition de fiction',
+    //     fictionId: fiction.id
+    //   }
+    // });
+    this.dialog.open(ModalComponent, {
       width: '650px',
-      data: {fictionId: fiction.id}
+      data: {
+        titre: 'Edition de fiction',
+        fictionId: fiction.id,
+        isAjoutFiction: false,
+        isEditionFiction: true
+      }
     });
 
   }
@@ -79,7 +91,12 @@ export class PageAccueilComponent implements OnInit {
 
   openDialog(): void {
     let dialogRef = this.dialog.open(ModalComponent, {
-      width: '650px'
+      width: '650px',
+      data: {
+        titre: 'Ajout de fiction',
+        isAjoutFiction: true,
+        isEditionFiction: false
+      }
     });
   }
 
