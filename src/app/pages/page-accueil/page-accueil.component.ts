@@ -6,9 +6,6 @@ import { FictionService} from '../../services/fiction.service';
 import { HttpClient } from '@angular/common/http';
 import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
 
-import {ModalEditionComponent} from '../../components/modal-edition/modal-edition.component';
-
-
 @Component({
   selector: 'app-page-accueil',
   templateUrl: './page-accueil.component.html',

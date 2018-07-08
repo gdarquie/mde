@@ -12,8 +12,8 @@ import { TexteService } from './services/texte.service';
 import { PersonnageService } from './services/personnage.service';
 import { EvenementService } from './services/evenement.service';
 
-import { AddFictionComponent } from './components/add-fiction/add-fiction.component';
-import { EditFictionComponent } from './components/edit-fiction/edit-fiction.component';
+import { AddFictionComponent } from './components/fiction/add-fiction/add-fiction.component';
+import { EditFictionComponent } from './components/fiction/edit-fiction/edit-fiction.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { PageFictionDetailComponent } from './pages/page-fiction-detail/page-fiction-detail.component';
@@ -56,6 +56,8 @@ import {
 } from '@angular/material';
 import { PageFictionTextesComponent } from './pages/page-fiction-textes/page-fiction-textes.component';
 import { PageFictionPersonnagesComponent } from './pages/page-fiction-personnages/page-fiction-personnages.component';
+import { AddTexteComponent } from './components/texte/add-texte/add-texte.component';
+import { EditTexteComponent } from './components/texte/edit-texte/edit-texte.component';
 
 @NgModule({
   exports: [
@@ -93,7 +95,7 @@ import { PageFictionPersonnagesComponent } from './pages/page-fiction-personnage
     MatToolbarModule,
     MatTooltipModule,
   ],
-  declarations: [PageFictionTextesComponent, PageFictionPersonnagesComponent]
+  declarations: [PageFictionTextesComponent, PageFictionPersonnagesComponent, AddTexteComponent, EditTexteComponent]
 })
 export class DemoMaterialModule {}
 

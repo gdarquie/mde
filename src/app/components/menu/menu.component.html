@@ -3,3 +3,13 @@
   <button mat-menu-item>Créer une fiction</button>
   <button mat-menu-item>Paramètres</button>
 </mat-menu>
+
+<div *ngIf="isEditionFiction">
+  Menu conditionnel
+  <ul>
+    <li>Textes</li>
+    <li>Evènements</li>
+    <li>Personnages</li>
+  </ul>
+</div>
+

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Fiction } from '../../classes/fiction';
-import { FictionService} from '../../services/fiction.service';
+import { Fiction } from '../../../classes/fiction';
+import { FictionService} from '../../../services/fiction.service';
 import { HttpClient } from '@angular/common/http';
-import {ModalComponent} from '../modal/modal.component';
+import {ModalComponent} from '../../modal/modal.component';
 import {MatDialogRef} from '@angular/material';
 
 @Component({

@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
-import { Fiction } from '../../classes/fiction';
-import { FictionService } from '../../services/fiction.service';
+import { Fiction } from '../../../classes/fiction';
+import { FictionService } from '../../../services/fiction.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import {Location} from '@angular/common';
-import {ModalComponent} from '../modal/modal.component';
+import {ModalComponent} from '../../modal/modal.component';
 
 @Component({
   selector: 'app-edit-fiction',
