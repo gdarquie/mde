@@ -4,10 +4,13 @@
 
         <header class="col-md-12">
           <h1>{{fiction.titre}}</h1>
-          textes
-          personnages
-          évènements
-          plan
+
+          <ul>
+            <li>textes</li>
+            <li>personnages</li>
+            <li>évènements</li>
+            <li>plan</li>
+          </ul>
 
         </header>
 
@@ -20,41 +23,18 @@
           <p>{{fiction.description}}</p>
         </article>
 
-        <!--<ngb-tabset>-->
+        <article *ngFor = "let texte of textes" class="item-card">
 
-        <!--<ngb-tab title="textes">-->
-        <!--<ng-template ngbTabContent>-->
-        <!--<div class="row col-md-12">-->
-        <!--<div *ngFor = "let texte of textes" class="item-card col-md-12">-->
-        <!--<h2>{{texte.id}} - {{texte.titre}}</h2>-->
-        <!--<p>uuid : {{texte.uuid}}</p>-->
-        <!--<p>description : {{texte.description}}</p>-->
-        <!--<p>type : {{texte.type}}</p>-->
-        <!--<button type="button" (click)="updateTexte(texte);" class="btn btn-outline-dark">Editer</button>-->
-        <!--<button type="button" (click)="deleteTexte(texte);" class="btn btn-outline-dark">Supprimer</button>-->
-        <!--&lt;!&ndash; <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> &ndash;&gt;-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</ng-template>-->
-        <!--</ngb-tab>-->
+          <h2>{{texte.id}} - {{texte.titre}}</h2>
+          <p>type : {{texte.type}}</p>
+          <p>uuid : {{texte.uuid}}</p>
+          <p>description : {{texte.description}}</p>
 
-        <!--<ngb-tab >-->
-        <!--<ng-template ngbTabTitle>personnages</ng-template>-->
-        <!--<ng-template ngbTabContent>-->
-        <!--<div class="row col-md-12">-->
-        <!--<div *ngFor = "let personnage of personnages" class="col-md-6">-->
-        <!--<article class="item-card">-->
-        <!--<h2>{{personnage.titre}}</h2>-->
-        <!--<p>{{personnage.description}}</p>-->
-        <!--<p>Né en {{personnage.annee_naissance}}, mort.e en {{personnage.annee_mort}}</p>-->
-        <!--<button type="button" (click)="updatePersonnage(personnage);" class="btn btn-outline-dark">Editer</button>-->
-        <!--<button type="button" (click)="deletePersonnage(personnage);" class="btn btn-outline-dark">Supprimer</button>-->
-        <!--&lt;!&ndash; <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a> &ndash;&gt;-->
-        <!--</article>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</ng-template>-->
-        <!--</ngb-tab>-->
+          <button type="button" (click)="updateTexte(texte);" class="btn btn-outline-dark">Editer</button>
+          <button type="button" (click)="deleteTexte(texte);" class="btn btn-outline-dark">Supprimer</button>
+           <a routerLink="/personnage/{{personnage.id}}">Voir le fiction</a>
+
+        </article>
 
         <!--<ngb-tab>-->
         <!--<ng-template ngbTabTitle>évènements</ng-template>-->
