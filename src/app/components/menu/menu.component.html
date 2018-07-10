@@ -4,12 +4,14 @@
   <button mat-menu-item>Paramètres</button>
 </mat-menu>
 
-<div *ngIf="isEditionFiction">
-  Menu conditionnel
+<div *ngIf="fiction">
+  {{fiction.titre}}
   <ul>
     <li>Textes</li>
     <li>Evènements</li>
     <li>Personnages</li>
   </ul>
 </div>
+
+<p>Ajouter une fiction</p>
 

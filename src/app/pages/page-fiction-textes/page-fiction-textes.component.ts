@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Texte} from '../../classes/texte';
 import {FictionService} from '../../services/fiction.service';
 import {Location} from '@angular/common';
@@ -13,6 +13,9 @@ import {Fiction} from '../../classes/fiction';
   styleUrls: ['./page-fiction-textes.component.css']
 })
 export class PageFictionTextesComponent implements OnInit {
+
+  // @Input()fiction: Fiction;
+  // @Input()fictionId: Fiction;
 
   fictionId: string;
   fiction: Fiction;
