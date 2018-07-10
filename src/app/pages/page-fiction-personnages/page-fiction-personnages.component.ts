@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Fiction} from '../../classes/fiction';
+import {FictionService} from '../../services/fiction.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-page-fiction-personnages',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageFictionPersonnagesComponent implements OnInit {
 
-  constructor() { }
+  fictionId: string;
+  fiction: Fiction;
+
+  constructor(
+    private route: ActivatedRoute,
+    private fictionService: FictionService
+  ) { }
 
   ngOnInit() {
+    this.getFictionId();
+    this.getFiction(this.fictionId);
   }
+
+  getFictionId(): void {
+    this.route.params.subscribe(params => {
+      return this.fictionId =  params['id'];
+    });
+  }
+
+  /**
+   * @param fictionId
+   * @returns {object}
+   */
+  getFiction(fictionId): object {
+    return this.fictionService.getFiction(fictionId)
+      .subscribe(fiction => this.fiction = fiction);
+  };
 
 }

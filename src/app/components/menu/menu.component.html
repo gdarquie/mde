@@ -7,9 +7,10 @@
 <div *ngIf="fiction">
   {{fiction.titre}}
   <ul>
-    <li>Textes</li>
+    <li><a routerLink="/fiction/{{fiction.id}}/textes">Textes</a></li>
+    <li><a routerLink="/fiction/{{fiction.id}}/personnages">Personnages</a></li>
     <li>Evènements</li>
-    <li>Personnages</li>
+    <li>Plan</li>
   </ul>
 </div>
 
