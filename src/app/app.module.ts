@@ -19,6 +19,10 @@ import { MenuComponent } from './components/menu/menu.component';
 import { PageFictionDetailComponent } from './pages/page-fiction-detail/page-fiction-detail.component';
 import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
 import { FictionService } from './services/fiction.service';
+import { PageFictionTextesComponent } from './pages/page-fiction-textes/page-fiction-textes.component';
+import { PageFictionPersonnagesComponent } from './pages/page-fiction-personnages/page-fiction-personnages.component';
+import { AddTexteComponent } from './components/texte/add-texte/add-texte.component';
+import { EditTexteComponent } from './components/texte/edit-texte/edit-texte.component';
 
 import {
   MatAutocompleteModule,
@@ -54,10 +58,7 @@ import {
   MatToolbarModule,
   MatTooltipModule,
 } from '@angular/material';
-import { PageFictionTextesComponent } from './pages/page-fiction-textes/page-fiction-textes.component';
-import { PageFictionPersonnagesComponent } from './pages/page-fiction-personnages/page-fiction-personnages.component';
-import { AddTexteComponent } from './components/texte/add-texte/add-texte.component';
-import { EditTexteComponent } from './components/texte/edit-texte/edit-texte.component';
+
 
 @NgModule({
   exports: [
@@ -95,7 +96,7 @@ import { EditTexteComponent } from './components/texte/edit-texte/edit-texte.com
     MatToolbarModule,
     MatTooltipModule,
   ],
-  declarations: [PageFictionTextesComponent, PageFictionPersonnagesComponent, AddTexteComponent, EditTexteComponent]
+  declarations: [AddTexteComponent, EditTexteComponent]
 })
 export class DemoMaterialModule {}
 
@@ -108,6 +109,8 @@ export class DemoMaterialModule {}
     ModalComponent,
     AddFictionComponent,
     EditFictionComponent,
+    PageFictionTextesComponent,
+    PageFictionPersonnagesComponent
   ],
   entryComponents: [ModalComponent],
   imports: [

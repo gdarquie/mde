@@ -1,3 +1,20 @@
-<p>
-  page-fiction-textes works!
-</p>
+<app-menu></app-menu>
+
+<ul>
+  <li>Ajouter une fiction</li>
+</ul>
+
+<h2>Liste des textes de la fiction {{fiction.titre}}</h2>
+
+<article *ngFor = "let texte of textes" class="item-card">
+
+  <h2>{{texte.id}} - {{texte.titre}}</h2>
+  <p>type : {{texte.type}}</p>
+  <p>uuid : {{texte.uuid}}</p>
+  <p>description : {{texte.description}}</p>
+
+  <button type="button" (click)="updateTexte(texte);" class="btn btn-outline-dark">Editer</button>
+  <button type="button" (click)="deleteTexte(texte);" class="btn btn-outline-dark">Supprimer</button>
+  <!--<a routerLink="/texte/{{texte.id}}">Voir le texte</a>-->
+
+</article>
