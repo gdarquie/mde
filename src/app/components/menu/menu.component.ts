@@ -1,4 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ModalComponent} from '../modal/modal.component';
+import {Fiction} from '../../classes/fiction';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-menu',
@@ -7,12 +10,27 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() {}
+  fictionId: string;
+
+  constructor(public dialog: MatDialog) {}
 
   @Input() fiction: object;
 
   ngOnInit() {
   }
+
+  openDialog(): void {
+   this.dialog.open(ModalComponent, {
+      width: '650px',
+      data: {
+        titre: 'Ajout de fiction',
+        isAjoutFiction: true,
+        isEditionFiction: false
+      }
+    });
+  }
+
+
 
 }
 

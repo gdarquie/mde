@@ -29,8 +29,6 @@ export class PageAccueilComponent implements OnInit {
 
   fictions: Fiction[];
   content: string;
-  displayText: string = 'Display Texte';
-  buttonText: string = 'Valider';
 
   constructor(private http: HttpClient, private fictionService: FictionService, public dialog: MatDialog) {}
 
@@ -55,17 +53,10 @@ export class PageAccueilComponent implements OnInit {
   }
 
   editFiction(fiction) {
-    console.log('Edition de la fiction = '+fiction.id);
+
     let titre = fiction.titre;
     let description = fiction.description;
-    console.log(titre+' et '+description);
-    // this.dialog.open(ModalEditionComponent, {
-    //   width: '650px',
-    //   data: {
-    //     titre: 'Edition de fiction',
-    //     fictionId: fiction.id
-    //   }
-    // });
+
     this.dialog.open(ModalComponent, {
       width: '650px',
       data: {

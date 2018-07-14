@@ -1,18 +1,30 @@
-<button mat-button [matMenuTriggerFor]="menu">fictio</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>Créer une fiction</button>
-  <button mat-menu-item>Paramètres</button>
-</mat-menu>
+<mat-toolbar>
 
-<div *ngIf="fiction">
+  <div>Fictio</div>
+
+  <div>Titre de la section</div>
+
+  <div *ngIf="fiction">
   {{fiction.titre}}
-  <ul>
-    <li><a routerLink="/fiction/{{fiction.id}}/textes">Textes</a></li>
-    <li><a routerLink="/fiction/{{fiction.id}}/personnages">Personnages</a></li>
-    <li>Evènements</li>
-    <li>Plan</li>
-  </ul>
-</div>
+    <ul>
+      <li><a routerLink="/fiction/{{fiction.id}}/textes">Textes</a></li>
+      <li><a routerLink="/fiction/{{fiction.id}}/personnages">Personnages</a></li>
+      <li>Evènements</li>
+      <li>Plan</li>
+    </ul>
+  </div>
 
-<p>Ajouter une fiction</p>
+  <div *ngIf="! fiction">
+    <div>
+      <button class="add" mat-mini-fab mat-raised-button color="warn" (click)="openDialog()">
+        <mat-icon >add</mat-icon>
+      </button>
+    </div>
+  </div>
 
+  <div>
+    <p>Paramètres</p>
+  </div>
+
+
+</mat-toolbar>
