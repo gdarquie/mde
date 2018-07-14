@@ -1,5 +1,15 @@
 <app-menu [fiction]="fiction"></app-menu>
 
-<p>
-  page-fiction-personnages works!
-</p>
+<h2>Liste des personnages de la fiction {{fiction.titre}}</h2>
+
+<article *ngFor = "let personnage of personnages" class="item-card">
+
+  <h2>{{personnage.id}} - {{personnage.titre}}</h2>
+  <p>uuid : {{personnage.uuid}}</p>
+  <p>description : {{personnage.description}}</p>
+
+  <!--<button type="button" (click)="updateTexte(texte);" class="btn btn-outline-dark">Editer</button>-->
+  <!--<button type="button" (click)="deleteTexte(texte);" class="btn btn-outline-dark">Supprimer</button>-->
+  <!--<a routerLink="/texte/{{texte.id}}">Voir le texte</a>-->
+
+</article>
