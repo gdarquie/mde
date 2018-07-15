@@ -29,6 +29,7 @@ export class PageAccueilComponent implements OnInit {
 
   fictions: Fiction[];
   content: string;
+  titreMenu = 'accueil';
 
   constructor(private http: HttpClient, private fictionService: FictionService, public dialog: MatDialog) {}
 

@@ -16,10 +16,11 @@ export class PageFictionPersonnagesComponent implements OnInit {
   fiction: Fiction;
   personnages: Personnage[];
   personnage: Personnage;
+  titreMenu = 'personnages';
 
   constructor(
     private route: ActivatedRoute,
-    private fictionService: FictionService
+    private fictionService: FictionService,
     private personnageService: PersonnageService
   ) { }
 

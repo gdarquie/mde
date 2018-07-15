@@ -21,6 +21,7 @@ export class PageFictionTextesComponent implements OnInit {
   fiction: Fiction;
   textes: Texte[];
   texte: Texte;
+  titreMenu = 'textes';
 
   constructor(
     private http: HttpClient,

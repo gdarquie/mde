@@ -15,6 +15,7 @@ export class MenuComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   @Input() fiction: object;
+  @Input() titreMenu: string;
 
   ngOnInit() {
   }
