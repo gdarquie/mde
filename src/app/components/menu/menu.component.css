@@ -8,3 +8,13 @@ mat-toolbar {
 div {
   padding-left:10px;
 }
+
+h1 {
+  font-size : 1.2em;
+  color: black;
+
+}
+
+#menu-titre a{
+  text-decoration: none;
+}

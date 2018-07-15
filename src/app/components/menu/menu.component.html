@@ -1,25 +1,41 @@
 <mat-toolbar>
 
-  <div>Fictio</div>
-
-  <div>{{titreMenu}}</div>
+  <div id="menu-titre">
+      <a routerLink="/accueil">
+        <h1>fictio > {{titreMenu}}</h1>
+      </a>
+  </div>
 
   <div *ngIf="fiction">
-  {{fiction.titre}}
-    <ul>
-      <li><a routerLink="/fiction/{{fiction.id}}/textes">Textes</a></li>
-      <li><a routerLink="/fiction/{{fiction.id}}/personnages">Personnages</a></li>
-      <li>Evènements</li>
-      <li>Plan</li>
-    </ul>
+    <button class="add" mat-raised-button>
+      fiction {{fiction.titre}}
+    </button>
+  </div>
+
+  <div *ngIf="fiction">
+
+    <button class="add" mat-raised-button>
+      <a routerLink="/fiction/{{fiction.id}}/textes">Textes</a>
+    </button>
+
+    <button class="add" mat-raised-button>
+      <a routerLink="/fiction/{{fiction.id}}/personnages">Personnages</a>
+    </button>
+
+    <button class="add" mat-raised-button>
+      Evènements
+    </button>
+
+    <button class="add" mat-raised-button>
+      Plan
+    </button>
+
   </div>
 
   <div *ngIf="! fiction">
-    <div>
-      <button class="add" mat-raised-button  (click)="openDialog()">
-        <mat-icon>add</mat-icon> fiction
-      </button>
-    </div>
+    <button class="add" mat-raised-button  (click)="openDialog()">
+      <mat-icon>add</mat-icon> fiction
+    </button>
   </div>
 
   <div>
