@@ -1,16 +1,23 @@
 <app-menu [titreMenu] = "titreMenu" [fiction]="fiction"></app-menu>
 
-<h2>Liste des textes de la fiction {{fiction.titre}}</h2>
+<div class="container">
 
-<article *ngFor = "let texte of textes" class="item-card">
+  <mat-card *ngFor = "let texte of textes" class="item-card">
 
-  <h2>{{texte.id}} - {{texte.titre}}</h2>
-  <p>type : {{texte.type}}</p>
-  <p>uuid : {{texte.uuid}}</p>
-  <p>description : {{texte.description}}</p>
+    <mat-card-header>
+      <mat-card-title>{{texte.titre}}</mat-card-title>
+      <mat-card-subtitle>id : {{texte.id}} | type : {{texte.type}} | uuid : {{texte.uuid}}</mat-card-subtitle>
+    </mat-card-header>
 
-  <button type="button" (click)="updateTexte(texte);" class="btn btn-outline-dark">Editer</button>
-  <button type="button" (click)="deleteTexte(texte);" class="btn btn-outline-dark">Supprimer</button>
-  <!--<a routerLink="/texte/{{texte.id}}">Voir le texte</a>-->
+    <mat-card-content>
+      <p>{{texte.description}}</p>
+    </mat-card-content>
 
-</article>
+    <mat-card-actions>
+      <button type="button" (click)="updateTexte(texte);" class="btn btn-outline-dark">Editer</button>
+      <button type="button" (click)="deleteTexte(texte);" class="btn btn-outline-dark">Supprimer</button>
+    <!--<a routerLink="/texte/{{texte.id}}">Voir le texte</a>-->
+    </mat-card-actions>
+  </mat-card>
+
+</div>
