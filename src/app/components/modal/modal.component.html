@@ -9,3 +9,7 @@
 <div *ngIf="data.isEditionFiction">
   <app-edit-fiction></app-edit-fiction>
 </div>
+
+<div *ngIf="data.isAjoutPersonnage">
+  <app-add-personnage [fictionId]="fictionId"></app-add-personnage>
+</div>

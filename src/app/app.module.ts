@@ -23,6 +23,7 @@ import { PageFictionTextesComponent } from './pages/page-fiction-textes/page-fic
 import { PageFictionPersonnagesComponent } from './pages/page-fiction-personnages/page-fiction-personnages.component';
 import { AddTexteComponent } from './components/texte/add-texte/add-texte.component';
 import { EditTexteComponent } from './components/texte/edit-texte/edit-texte.component';
+import { AddPersonnageComponent } from './components/personnage/add-personnage/add-personnage.component';
 
 import {
   MatAutocompleteModule,
@@ -58,7 +59,6 @@ import {
   MatToolbarModule,
   MatTooltipModule,
 } from '@angular/material';
-
 
 @NgModule({
   exports: [
@@ -110,7 +110,8 @@ export class DemoMaterialModule {}
     AddFictionComponent,
     EditFictionComponent,
     PageFictionTextesComponent,
-    PageFictionPersonnagesComponent
+    PageFictionPersonnagesComponent,
+    AddPersonnageComponent
   ],
   entryComponents: [ModalComponent],
   imports: [
