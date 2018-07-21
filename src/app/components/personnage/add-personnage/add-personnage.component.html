@@ -1,0 +1,23 @@
+<div class="container">
+
+  <mat-form-field>
+    <!--<input matInput placeholder="Titre" #fictionTitre>-->
+    <input matInput placeholder="Surnom" #persoTitre>
+  </mat-form-field>
+
+  <mat-form-field>
+    <!--<textarea matInput placeholder="Description"  #fictionDescription></textarea>-->
+    <textarea matInput placeholder="Description" #persoDescription></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Année de naissance" #persoAnneeNaissance>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Année de mort" #persoAnneeMort>
+  </mat-form-field>
+
+  <button mat-button (click)="addPersonnage(persoTitre.value, persoDescription.value, fictionId, persoAnneeNaissance.value, persoAnneeMort.value);" class="btn btn-primary">Créer un personnage</button>
+
+</div>
