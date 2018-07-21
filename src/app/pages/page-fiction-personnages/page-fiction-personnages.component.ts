@@ -58,23 +58,6 @@ export class PageFictionPersonnagesComponent implements OnInit {
   };
 
   /**
-   * @param {string} titre
-   * @param {string} description
-   * @param {number} fiction
-   * @param {number} annee_naissance
-   * @param {number} annee_mort
-   */
-  addPersonnage(titre: string, description: string, fiction: number, annee_naissance?: number, annee_mort?: number): void {
-    titre = titre.trim();
-    description = description.trim();
-    if (!titre || !description) { return; }
-    this.personnageService.addPersonnage({ titre, description, fiction, annee_naissance, annee_mort } as Personnage)
-      .subscribe(personnage => {
-        this.personnages.push(personnage);
-      });
-  }
-
-  /**
    * @param {Personnage} personnage
    */
   deletePersonnage = function(personnage: Personnage): void {

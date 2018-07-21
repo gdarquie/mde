@@ -1,3 +1,15 @@
-<p>
-  add-texte works!
-</p>
+<div class="container">
+
+  <mat-form-field>
+    <input matInput placeholder="Titre" #texteTitre>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Description" #texteDescription></textarea>
+  </mat-form-field>
+
+  <button mat-button (click)="addTexte(texteTitre.value, texteDescription.value, fictionId);">Créer un texte</button>
+
+</div>
+
+
