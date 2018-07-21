@@ -1,6 +1,7 @@
 <app-menu [titreMenu] = "titreMenu" [fiction]="fiction"></app-menu>
 
 <div class="container">
+
   <mat-card *ngFor = "let personnage of personnages" class="item-card">
 
     <mat-card-header>
@@ -13,8 +14,10 @@
     </mat-card-content>
 
     <!--<button type="button" (click)="updateTexte(texte);" class="btn btn-outline-dark">Editer</button>-->
-    <button type="button" (click)="deletePersonnage(personnage);" class="btn btn-outline-dark">Supprimer</button>
-    <!--<a routerLink="/texte/{{texte.id}}">Voir le texte</a>-->
+    <button type="button" mat-button  (click)="deletePersonnage(personnage);">
+      <mat-icon>delete</mat-icon>
+      adieu
+    </button>
 
   </mat-card>
 
