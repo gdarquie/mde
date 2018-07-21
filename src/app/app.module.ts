@@ -95,8 +95,7 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-  ],
-  declarations: [AddTexteComponent, EditTexteComponent]
+  ]
 })
 export class DemoMaterialModule {}
 
@@ -111,7 +110,9 @@ export class DemoMaterialModule {}
     EditFictionComponent,
     PageFictionTextesComponent,
     PageFictionPersonnagesComponent,
-    AddPersonnageComponent
+    AddPersonnageComponent,
+    AddTexteComponent,
+    EditTexteComponent
   ],
   entryComponents: [ModalComponent],
   imports: [

@@ -6,6 +6,9 @@ import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {TexteService} from '../../services/texte.service';
 import {Fiction} from '../../classes/fiction';
+import {ModalComponent} from '../../components/modal/modal.component';
+import {MatDialog} from '@angular/material';
+import {Personnage} from '../../classes/personnage';
 
 @Component({
   selector: 'app-page-fiction-textes',
@@ -28,7 +31,8 @@ export class PageFictionTextesComponent implements OnInit {
     private fictionService: FictionService,
     private texteService: TexteService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -66,23 +70,6 @@ export class PageFictionTextesComponent implements OnInit {
   };
 
   /**
-   * @param {string} titre
-   * @param {string} description
-   * @param {number} fiction
-   * @param {string} type
-   */
-  addTexte(titre: string, description: string, fiction: number, type: string): void {
-    titre = titre.trim();
-    description = description.trim();
-    type = 'fragment';
-    if (!titre || !description) { return; }
-    this.texteService.addTexte({ titre, description, fiction, type } as Texte)
-      .subscribe(texte => {
-        this.textes.push(texte);
-      });
-  }
-
-  /**
    * @param {Texte} texte
    */
   deleteTexte = function(texte: Texte): void {
@@ -91,9 +78,25 @@ export class PageFictionTextesComponent implements OnInit {
       .subscribe(textes => this.textes = textes.slice(0, 9));
   };
 
-  saveTexte(): void {
-    this.texteService.updateTexte(this.texte)
-      .subscribe(() => this.goBack());
+  // addTexte(titre: string, description: string, fiction: number ): void {
+  //   titre = titre.trim();
+  //   description = description.trim();
+  //   if (!titre || !description) { return; }
+  //   this.texteService.addTexte({ titre, description, fiction } as Texte)
+  //     .subscribe(texte => {
+  //       this.textes.push(texte);
+  //     });
+  // }
+
+  openDialog(): void {
+    this.dialog.open(ModalComponent, {
+      width: '650px',
+      data: {
+        titre: 'Ajout de texte',
+        fictionId: this.fictionId,
+        isAjoutTexte: true
+      }
+    });
   }
 
 }
