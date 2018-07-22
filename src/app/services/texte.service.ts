@@ -18,6 +18,15 @@ export class TexteService {
     private http: HttpClient
   ) { }
 
+  /**
+   *
+   * @param texteId
+   * @returns {Observable<Texte>}
+   */
+  getTexte(texteId): Observable<Texte> {
+    return this.http.get<Texte>(this.textesUrl + '/' + texteId );
+  }
+
   /** All textes for one fiction */
   getTextes(fictionId): Observable<Texte[]> {
       return this.http.get<Texte[]>(this.textesUrl + '/fiction/' + fictionId)
@@ -34,9 +43,9 @@ export class TexteService {
   }
 
   /** PUT: mettre à jour un texte */
-  updateTexte (texte: Texte): Observable<any> {
-    return this.http.put(this.textesUrl, texte, httpOptions).pipe(
-      catchError(this.handleError<any>('updateTexte'))
+  putTexte (texte: Texte): Observable<Texte> {
+    return this.http.put<Texte>(this.textesUrl + '/' + texte.id, texte, httpOptions).pipe(
+      catchError(this.handleError<Texte>('putTexte'))
     );
   }
 

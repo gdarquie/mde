@@ -1,3 +1,15 @@
-<p>
-  edit-texte works!
-</p>
+<div class="container">
+
+  <mat-form-field>
+    <input matInput placeholder="Titre" value ='{{texte.titre}}' #texteTitre >
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Description" value ='{{texte.description}}'  #texteDescription></textarea>
+  </mat-form-field>
+
+  <button mat-button (click)="editTexte(texteTitre.value, texteDescription.value)">
+    Editer le texte
+  </button>
+
+</div>

@@ -22,7 +22,7 @@ export class AddPersonnageComponent implements OnInit {
   personnages: Personnage[];
   content: string;
 
-  @Input() fictionId;
+  @Input() indexId;
 
   ngOnInit() {
   }

@@ -11,9 +11,13 @@
 </div>
 
 <div *ngIf="data.isAjoutPersonnage">
-  <app-add-personnage [fictionId]="fictionId"></app-add-personnage>
+  <app-add-personnage [indexId]="indexId"></app-add-personnage>
 </div>
 
 <div *ngIf="data.isAjoutTexte">
-  <app-add-texte [fictionId]="fictionId"></app-add-texte>
+  <app-add-texte [indexId]="indexId"></app-add-texte>
+</div>
+
+<div *ngIf="data.isEditionTexte">
+  <app-edit-texte [indexId]="indexId"></app-edit-texte>
 </div>

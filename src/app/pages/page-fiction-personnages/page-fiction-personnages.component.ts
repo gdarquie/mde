@@ -71,7 +71,7 @@ export class PageFictionPersonnagesComponent implements OnInit {
       width: '650px',
       data: {
         titre: 'Ajout de personnage',
-        fictionId: this.fictionId,
+        indexId: this.fictionId,
         isAjoutPersonnage: true
       }
     });

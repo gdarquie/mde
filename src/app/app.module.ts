@@ -16,7 +16,6 @@ import { AddFictionComponent } from './components/fiction/add-fiction/add-fictio
 import { EditFictionComponent } from './components/fiction/edit-fiction/edit-fiction.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { PageFictionDetailComponent } from './pages/page-fiction-detail/page-fiction-detail.component';
 import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
 import { FictionService } from './services/fiction.service';
 import { PageFictionTextesComponent } from './pages/page-fiction-textes/page-fiction-textes.component';
@@ -104,7 +103,6 @@ export class DemoMaterialModule {}
     AppComponent,
     PageAccueilComponent,
     MenuComponent,
-    PageFictionDetailComponent,
     ModalComponent,
     AddFictionComponent,
     EditFictionComponent,
