@@ -4,6 +4,7 @@ import { TexteService } from '../../../services/texte.service';
 import { HttpClient } from '@angular/common/http';
 import {ModalComponent} from '../../modal/modal.component';
 import {MatDialogRef} from '@angular/material';
+import {Fiction} from '../../../classes/fiction';
 
 @Component({
   selector: 'app-add-texte',
@@ -22,7 +23,7 @@ export class AddTexteComponent implements OnInit {
   textes: Texte[];
   texte: Texte;
 
-  @Input() fictionId;
+  @Input() indexId;
 
   ngOnInit() {
   }
@@ -30,18 +31,19 @@ export class AddTexteComponent implements OnInit {
   /**
    * @param {string} titre
    * @param {string} description
-   * @param {number} fiction
+   * @param {number} fictionId
    * @param {string} type
    */
-  addTexte(titre: string, description: string, fiction: number, type: string): void {
+  addTexte(titre: string, description: string, fictionId: number, type: string): void {
     titre = titre.trim();
     description = description.trim();
     type = 'fragment';
+
     if (!titre || !description) { return; }
-    this.texteService.addTexte({ titre, description, fiction, type } as Texte)
+    this.texteService.addTexte({ titre, description, fictionId, type } as Texte)
       .subscribe(texte => {
         this.textes.push(texte);
       });
+    this.dialogRef.close();
   }
-
 }

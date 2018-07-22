@@ -15,10 +15,10 @@ export interface DialogData {
 
 export class ModalComponent {
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 
   @Input() modalTitre;
-  fictionId = this.data.fictionId;
+
+  indexId = this.data.indexId;
 
 }

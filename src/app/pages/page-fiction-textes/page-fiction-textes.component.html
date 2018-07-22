@@ -13,14 +13,17 @@
       <p>{{texte.description}}</p>
     </mat-card-content>
 
+
+
     <mat-card-actions>
-      <!--<button type="button" (click)="updateTexte(texte);" class="btn btn-outline-dark">Editer</button>-->
+
+      <button mat-button (click)="editTexte(texte)">Edit</button>
+
       <button type="button" mat-button  (click)="deleteTexte(texte);">
         <mat-icon>delete</mat-icon>
         adieu
       </button>
 
-    <!--<a routerLink="/texte/{{texte.id}}">Voir le texte</a>-->
     </mat-card-actions>
   </mat-card>
 

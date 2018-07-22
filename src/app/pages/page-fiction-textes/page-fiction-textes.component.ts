@@ -69,6 +69,22 @@ export class PageFictionTextesComponent implements OnInit {
       .subscribe(textes => this.textes = textes.slice(0, 9));
   };
 
+  editTexte(texte) {
+
+    let titre = texte.titre;
+    let description = texte.description;
+
+    this.dialog.open(ModalComponent, {
+      width: '650px',
+      data: {
+        titre: 'Edition du texte',
+        indexId: texte.id,
+        isEditionTexte: true
+      }
+    });
+
+  }
+
   /**
    * @param {Texte} texte
    */
@@ -78,22 +94,12 @@ export class PageFictionTextesComponent implements OnInit {
       .subscribe(textes => this.textes = textes.slice(0, 9));
   };
 
-  // addTexte(titre: string, description: string, fiction: number ): void {
-  //   titre = titre.trim();
-  //   description = description.trim();
-  //   if (!titre || !description) { return; }
-  //   this.texteService.addTexte({ titre, description, fiction } as Texte)
-  //     .subscribe(texte => {
-  //       this.textes.push(texte);
-  //     });
-  // }
-
   openDialog(): void {
     this.dialog.open(ModalComponent, {
       width: '650px',
       data: {
         titre: 'Ajout de texte',
-        fictionId: this.fictionId,
+        indexId: this.fictionId,
         isAjoutTexte: true
       }
     });

@@ -24,7 +24,7 @@ export class EditFictionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getFiction(this.data.fictionId);
+    this.getFiction(this.data.indexId);
   }
 
   /**
@@ -39,8 +39,9 @@ export class EditFictionComponent implements OnInit {
   editFiction(titre: string, description: string): void {
     const id = this.fiction.id;
     this.fictionService.putFiction({ id, titre, description } as Fiction)
-      .subscribe(() => this.goBack());
-    console.log('Edition réussie');
+      .subscribe(
+        // () => this.goBack()
+      );
     this.dialogRef.close();
   }
 

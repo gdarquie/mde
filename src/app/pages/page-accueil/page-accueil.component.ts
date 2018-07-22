@@ -62,7 +62,7 @@ export class PageAccueilComponent implements OnInit {
       width: '650px',
       data: {
         titre: 'Edition de fiction',
-        fictionId: fiction.id,
+        indexId: fiction.id,
         isAjoutFiction: false,
         isEditionFiction: true
       }
@@ -83,8 +83,7 @@ export class PageAccueilComponent implements OnInit {
       width: '650px',
       data: {
         titre: 'Ajout de fiction',
-        isAjoutFiction: true,
-        isEditionFiction: false
+        isAjoutFiction: true
       }
     });
   }
