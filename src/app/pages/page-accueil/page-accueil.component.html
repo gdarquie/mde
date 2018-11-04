@@ -2,8 +2,16 @@
 
 <h1>Fictions</h1>
 
+<div>
+  <h2>Test pour une fiction</h2>
+
+  <p>Récupération d'une fiction</p>
+
+  {{maFiction.titre}}
+</div>
+
 <mat-grid-list cols="3" rowHeight="2:1">
-  <mat-grid-tile *ngFor = "let fiction of fictions" class="carte-item card">
+  <mat-grid-tile *ngFor = "let fiction of items" class="carte-item card">
     <mat-card>
 
       <mat-card-title>{{fiction.titre}}</mat-card-title>

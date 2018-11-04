@@ -3,6 +3,7 @@ import {MatDialog } from '@angular/material';
 import {ModalComponent} from '../../components/modal/modal.component';
 import { Fiction } from '../../classes/fiction';
 import { FictionService} from '../../services/fiction.service';
+import {Collection} from '../../classes/collection';
 import { HttpClient } from '@angular/common/http';
 import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
 
@@ -28,20 +29,34 @@ import {trigger, style, transition, animate, keyframes, query, stagger} from '@a
 export class PageAccueilComponent implements OnInit {
 
   fictions: Fiction[];
+  items: Collection[];
+  maFiction: Fiction;
   content: string;
   titreMenu = 'accueil';
 
   constructor(private http: HttpClient, private fictionService: FictionService, public dialog: MatDialog) {}
 
   ngOnInit() {
+    this.getMaFictionTest(7);
     this.getFictions();
   }
 
+  //todo : à supprimer
+  getMaFictionTest(fictionId): object {
+      return this.fictionService.getFiction(fictionId)
+          .subscribe(fiction => this.maFiction = fiction);
+  };
+
+
   getFictions(): void {
-    this.fictionService.getFictions()
-      .subscribe(fictions => this.fictions = fictions.slice(0, 9));
+    this.fictionService.getCollection()
+      .subscribe(items => this.items = items.slice(0, 9));
   }
 
+    /**
+     * @param titre
+     * @param description
+     */
   addFiction(titre: string, description: string): void {
     titre = titre.trim();
     description = description.trim();
@@ -53,6 +68,9 @@ export class PageAccueilComponent implements OnInit {
       });
   }
 
+    /**
+     * @param fiction
+     */
   editFiction(fiction) {
 
     let titre = fiction.titre;
