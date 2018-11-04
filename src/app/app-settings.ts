@@ -1,0 +1,7 @@
+export class AppSettings {
+    public static API_ENDPOINT = 'http://127.0.0.1:8000';
+    public static FICTION = 'fiction';
+    // todo : remplacer par une variable (voir comment gérer les tokens, avec un provider?)
+    public static TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NDEzNDEzNTcsImV4cCI6MTU0MTM0NDk1NywicHNldWRvIjoiZ2FvdGlhbiJ9.tLrVumipNrup7TmKqFX9mgthX18CmKiGsIpluDGVZNLMvPIJ_cmBP4bjV4e-70lWYUE9WRLqVSdTnkBQHJcVttEb9RI7v8VlQdx0cqLzJi_6ag2OKduFbiaOs_D52m5g4kPPih7mqjqhszxb9jyP_EuA4AIqN5KXvNHLMvuY3ODi7EmvV5vsyrw12OUS9Ocv7ShisJZOsgGz_Z5mlyAxgWj_J_4tHZa7kltSHbnWZxI3zbZUCIw6k5-X-t9jCznoHlaZNYyVj65oPUPm1Pxg140JaOZzng2Ibhyo76-7Xq2u3ZXsO3yzPka4M4FMMCIdTzcvS0PFG5vMl6VAPiG2RTmWy5tcv1Z3lNy-njLHvHkvEKIIOJ_7Q1EzA75a5PHDnB6oAvP8Z-g-067wp3zLhCfannBtdJh4WkzV-a5QjmWxvO8euEHbvdsnztofrmEbjuZf0fX7wOzkUBP0LCqH7vJg2m3OADdEzwf8Ii7wyGGy-xk_-jFEdMOS66W8yaOFg8AMAkcBxJsWaQhH5Q7rXLeyzZ5Y883lOdkA0u0SS3IENLVklXCEe_uKqWQgJzGCTSp4SCWHWyltGfwJSHMEZD2F4cMiXgUA-0pbSzN80tDj2Vc0l3u0_PF-ZqeMGlaukbNXTmPeV4nigOVC97GYxWwx65qloWdnz0SYNn6WDLM';
+}
+
