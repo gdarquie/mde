@@ -41,7 +41,7 @@ export class PageAccueilComponent implements OnInit {
     this.getFictions();
   }
 
-  //todo : à supprimer
+  //todo : à supprimer après tests
   getMaFictionTest(fictionId): object {
       return this.fictionService.getFiction(fictionId)
           .subscribe(fiction => this.maFiction = fiction);

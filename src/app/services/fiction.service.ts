@@ -43,7 +43,7 @@ export class FictionService {
 
     /** POST: add a fiction to the server */
     addFiction (fiction: Fiction): Observable<Fiction> {
-        return this.http.post<Fiction>(this.fictionsUrl, fiction, httpOptions).pipe(
+        return this.http.post<Fiction>(this.fictionsUrl, fiction, this.httpOptions).pipe(
             catchError(this.handleError<Fiction>('addFiction'))
         );
     }
