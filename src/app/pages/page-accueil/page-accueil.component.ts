@@ -6,6 +6,7 @@ import { FictionService} from '../../services/fiction.service';
 import {Collection} from '../../classes/collection';
 import { HttpClient } from '@angular/common/http';
 import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
+import {Payload} from '../../classes/payload';
 
 @Component({
   selector: 'app-page-accueil',
@@ -30,27 +31,32 @@ export class PageAccueilComponent implements OnInit {
 
   fictions: Fiction[];
   items: Collection[];
-  maFiction: Fiction;
+  // maFiction: Fiction;
+  payload: Payload;
   content: string;
   titreMenu = 'accueil';
 
   constructor(private http: HttpClient, private fictionService: FictionService, public dialog: MatDialog) {}
 
   ngOnInit() {
-    this.getMaFictionTest(7);
-    this.getFictions();
+    // this.getFictions();
+    this.getPayload();
   }
 
   //todo : à supprimer après tests
-  getMaFictionTest(fictionId): object {
-      return this.fictionService.getFiction(fictionId)
-          .subscribe(fiction => this.maFiction = fiction);
-  };
-
+  // getMaFictionTest(fictionId): object {
+  //     return this.fictionService.getFiction(fictionId)
+  //         .subscribe(fiction => this.maFiction = fiction);
+  // };
 
   getFictions(): void {
-    this.fictionService.getCollection()
+    this.fictionService.getFictions()
       .subscribe(items => this.items = items.slice(0, 9));
+  }
+
+  getPayload(): void {
+      this.fictionService.getPayload()
+          .subscribe(payload => this.payload = payload);
   }
 
     /**
