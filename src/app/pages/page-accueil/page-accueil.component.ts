@@ -31,7 +31,6 @@ export class PageAccueilComponent implements OnInit {
 
   fictions: Fiction[];
   items: Collection[];
-  // maFiction: Fiction;
   payload: Payload;
   content: string;
   titreMenu = 'accueil';
@@ -39,21 +38,8 @@ export class PageAccueilComponent implements OnInit {
   constructor(private http: HttpClient, private fictionService: FictionService, public dialog: MatDialog) {}
 
   ngOnInit() {
-    // this.getFictions();
     this.getPayload();
   }
-
-  //todo : à supprimer après tests
-  // getMaFictionTest(fictionId): object {
-  //     return this.fictionService.getFiction(fictionId)
-  //         .subscribe(fiction => this.maFiction = fiction);
-  // };
-
-  getFictions(): void {
-    this.fictionService.getFictions()
-      .subscribe(items => this.items = items.slice(0, 9));
-  }
-
   getPayload(): void {
       this.fictionService.getPayload()
           .subscribe(payload => this.payload = payload);
@@ -79,8 +65,8 @@ export class PageAccueilComponent implements OnInit {
      */
   editFiction(fiction) {
 
-    let titre = fiction.titre;
-    let description = fiction.description;
+    const titre = fiction.titre;
+    const description = fiction.description;
 
     this.dialog.open(ModalComponent, {
       width: '650px',
@@ -103,7 +89,7 @@ export class PageAccueilComponent implements OnInit {
   };
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(ModalComponent, {
+    const dialogRef = this.dialog.open(ModalComponent, {
       width: '650px',
       data: {
         titre: 'Ajout de fiction',
