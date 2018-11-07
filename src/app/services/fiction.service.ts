@@ -5,6 +5,7 @@ import { Observable ,  of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import {AppSettings} from '../app-settings';
 import {Collection} from '../classes/collection';
+import {Payload} from '../classes/payload';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
@@ -27,18 +28,15 @@ export class FictionService {
         return this.http.get<Fiction>(this.fictionsUrl + '/' + fictionId, this.httpOptions );
     }
 
-    getCollection(): Observable<Collection[]> {
-        return this.http.get<Collection[]>(this.fictionsUrl, this.httpOptions)
-            .pipe(
-                catchError(this.handleError('getCollection', []))
-            );
-    }
-
     getFictions(): Observable<Fiction[]> {
         return this.http.get<Fiction[]>(this.fictionsUrl, this.httpOptions)
             .pipe(
                 catchError(this.handleError('getFictions', []))
         );
+    }
+
+    getPayload(): Observable<Payload> {
+        return this.http.get<Payload>(this.fictionsUrl, this.httpOptions );
     }
 
     /** POST: add a fiction to the server */
