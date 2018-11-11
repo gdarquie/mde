@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "shower": {
+    "fictio-mde": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -49,18 +49,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "shower:build"
+            "browserTarget": "fictio-mde:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "shower:build:production"
+              "browserTarget": "fictio-mde:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "shower:build"
+            "browserTarget": "fictio-mde:build"
           }
         },
         "test": {
@@ -101,7 +101,7 @@
       }
     }
   },
-  "defaultProject": "shower",
+  "defaultProject": "fictio-mde",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
