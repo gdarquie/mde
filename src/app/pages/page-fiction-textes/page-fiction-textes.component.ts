@@ -10,7 +10,7 @@ import {ModalComponent} from '../../components/modal/modal.component';
 import {MatDialog} from '@angular/material';
 import {Personnage} from '../../classes/personnage';
 import {Observable} from 'rxjs';
-import {AppSettings} from '../../app-settings';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-page-fiction-textes',
@@ -70,7 +70,7 @@ export class PageFictionTextesComponent implements OnInit {
     const httpOptions = {
         headers: new HttpHeaders({
             'Content-Type':  'application/json',
-            'Authorization': 'Bearer ' + AppSettings.TOKEN
+            'Authorization': 'Bearer ' + environment.token
         })
     };
     return this.texteService.getTextes(fictionId)

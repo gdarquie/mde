@@ -3,7 +3,7 @@ import { Texte } from '../classes/texte';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable ,  of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import {AppSettings} from '../app-settings';
+import {environment} from '../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
@@ -11,13 +11,11 @@ const httpOptions = {
 
 @Injectable()
 export class TexteService {
-
-  private url = 'http://127.0.0.1:8000';
-  private textesUrl = 'http://127.0.0.1:8000/textes';
+  private textesUrl = environment.apiUrl + '/textes';
   private httpOptions = {
         headers: new HttpHeaders({
             'Content-Type':  'application/json',
-            'Authorization': 'Bearer ' + AppSettings.TOKEN
+            'Authorization': 'Bearer ' + environment.token
         })
   };
 
