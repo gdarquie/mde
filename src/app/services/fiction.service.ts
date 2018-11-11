@@ -3,9 +3,9 @@ import { Fiction } from '../classes/fiction';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable ,  of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import {AppSettings} from '../app-settings';
 import {Collection} from '../classes/collection';
 import {Payload} from '../classes/payload';
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
@@ -13,12 +13,11 @@ const httpOptions = {
 
 @Injectable()
 export class FictionService {
-
-    private fictionsUrl = AppSettings.API_ENDPOINT + '/fictions';
+    private fictionsUrl = environment.apiUrl + '/fictions';
     private httpOptions = {
         headers: new HttpHeaders({
             'Content-Type':  'application/json',
-            'Authorization': 'Bearer ' + AppSettings.TOKEN
+            'Authorization': 'Bearer ' + environment.token
         })
     };
 

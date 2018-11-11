@@ -3,7 +3,7 @@ import {Observable, of} from 'rxjs';
 import {Collection} from '../classes/collection';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
-import {AppSettings} from '../app-settings';
+import {environment} from '../../environments/environment';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
@@ -16,12 +16,12 @@ const httpOptions = {
 })
 export class CollectionService {
 
-    private fictionsUrl = AppSettings.API_ENDPOINT + '/fictions';
+    private fictionsUrl = environment.apiUrl + '/fictions';
 
     constructor( private http: HttpClient ) { }
 
     getCollection(): Observable<Collection[]> {
-        const token = AppSettings.TOKEN;
+        const token = environment.token;
         const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type':  'application/json',
