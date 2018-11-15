@@ -11,6 +11,7 @@ import {MatDialog} from '@angular/material';
 import {Personnage} from '../../classes/personnage';
 import {Observable} from 'rxjs';
 import {environment} from '../../../environments/environment';
+import {Payload} from '../../classes/payload';
 
 @Component({
   selector: 'app-page-fiction-textes',
@@ -22,13 +23,14 @@ export class PageFictionTextesComponent implements OnInit {
   // @Input()fiction: Fiction;
   // @Input()fictionId: Fiction;
 
-  fictionId: string;
-  fiction: Fiction;
-  textes: Texte[];
-  texte: Texte;
-  titreMenu = 'textes';
+    fictionId: string;
+    fiction: Fiction;
+    textes: Texte[];
+    texte: Texte;
+    titreMenu = 'textes';
+    payload: Payload;
 
-  constructor(
+    constructor(
     private http: HttpClient,
     private fictionService: FictionService,
     private texteService: TexteService,
@@ -40,7 +42,7 @@ export class PageFictionTextesComponent implements OnInit {
   ngOnInit() {
     this.getFictionId();
     this.getFiction(this.fictionId);
-    this.getTextes(this.fictionId);
+    this.getPayload(this.fictionId);
   }
 
   goBack(): void {
@@ -66,16 +68,21 @@ export class PageFictionTextesComponent implements OnInit {
    * @param fictionId
    * @returns {object}
    */
-  getTextes(fictionId): object {
-    const httpOptions = {
-        headers: new HttpHeaders({
-            'Content-Type':  'application/json',
-            'Authorization': 'Bearer ' + environment.token
-        })
-    };
-    return this.texteService.getTextes(fictionId)
-      .subscribe(textes => this.textes = textes.slice(0, 9));
-  };
+  // getTextes(fictionId): object {
+  //   const httpOptions = {
+  //       headers: new HttpHeaders({
+  //           'Content-Type':  'application/json',
+  //           'Authorization': 'Bearer ' + environment.token
+  //       })
+  //   };
+  //   return this.texteService.getTextes(fictionId)
+  //     .subscribe(textes => this.textes = textes.slice(0, 9));
+  // };
+
+    getPayload(fictionId): void {
+        this.texteService.getPayload(fictionId)
+            .subscribe(payload => this.payload = payload);
+    }
 
   editTexte(texte) {
 

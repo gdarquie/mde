@@ -45,10 +45,10 @@ export class PageAccueilComponent implements OnInit {
           .subscribe(payload => this.payload = payload);
   }
 
-    /**
-     * @param titre
-     * @param description
-     */
+  /**
+   * @param titre
+   * @param description
+   */
   addFiction(titre: string, description: string): void {
     titre = titre.trim();
     description = description.trim();
@@ -60,9 +60,9 @@ export class PageAccueilComponent implements OnInit {
       });
   }
 
-    /**
-     * @param fiction
-     */
+  /**
+   * @param fiction
+   */
   editFiction(fiction) {
 
     const titre = fiction.titre;
