@@ -2,7 +2,7 @@
 
 <div class="container">
 
-  <mat-card *ngFor = "let personnage of personnages" class="item-card">
+  <mat-card *ngFor = "let personnage of payload.items" class="item-card">
 
     <mat-card-header>
       <mat-card-title>{{personnage.id}} - {{personnage.titre}}</mat-card-title>

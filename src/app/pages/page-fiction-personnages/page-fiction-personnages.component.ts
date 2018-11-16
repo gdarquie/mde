@@ -6,6 +6,8 @@ import {ActivatedRoute} from '@angular/router';
 import {Personnage} from '../../classes/personnage';
 import {ModalComponent} from '../../components/modal/modal.component';
 import {MatDialog} from '@angular/material';
+import {Payload} from '../../classes/payload';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-page-fiction-personnages',
@@ -19,8 +21,10 @@ export class PageFictionPersonnagesComponent implements OnInit {
   personnages: Personnage[];
   personnage: Personnage;
   titreMenu = 'personnages';
+  payload: Payload;
 
   constructor(
+    private http: HttpClient,
     private route: ActivatedRoute,
     private fictionService: FictionService,
     private personnageService: PersonnageService,
@@ -30,7 +34,7 @@ export class PageFictionPersonnagesComponent implements OnInit {
   ngOnInit() {
     this.getFictionId();
     this.getFiction(this.fictionId);
-    this.getPersonnages(this.fictionId);
+    this.getPayload(this.fictionId);
   }
 
   getFictionId(): void {
@@ -46,19 +50,18 @@ export class PageFictionPersonnagesComponent implements OnInit {
   getFiction(fictionId): object {
     return this.fictionService.getFiction(fictionId)
       .subscribe(fiction => this.fiction = fiction);
-  };
-
+  }
   /**
+   *
    * @param fictionId
-   * @returns {object}
    */
-  getPersonnages(fictionId): object {
-    return this.personnageService.getPersonnages(fictionId)
-      .subscribe(personnages => this.personnages = personnages.slice(0, 99));
-  };
-
+  getPayload(fictionId): void {
+      this.personnageService.getPayload(fictionId)
+          .subscribe(payload => this.payload = payload);
+  }
   /**
-   * @param {Personnage} personnage
+   *
+   * @param personnage
    */
   deletePersonnage = function(personnage: Personnage): void {
     this.personnages = this.personnages.filter(p => p !== personnage);
