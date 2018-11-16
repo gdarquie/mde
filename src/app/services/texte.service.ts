@@ -32,14 +32,10 @@ export class TexteService {
     getTexte(texteId): Observable<Texte> {
       return this.http.get<Texte>(this.textesUrl + '/' + texteId, this.httpOptions);
     }
-    /** All textes for one fiction */
-    getTextes(fictionId): Observable<Texte[]> {
-        return this.http.get<Texte[]>(this.textesUrl + '/fiction/' + fictionId, this.httpOptions)
-          .pipe(
-            catchError(this.handleError('getTextes', []))
-          );
-    }
-
+    /**
+     *
+     * @param fictionId
+     */
     getPayload(fictionId): Observable<Payload> {
         return this.http.get<Payload>(this.textesUrl + '/fiction/' + fictionId, this.httpOptions);
     }

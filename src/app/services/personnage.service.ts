@@ -3,7 +3,8 @@ import { Personnage } from '../classes/personnage';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable ,  of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import {Texte} from "../classes/texte";
+import {Payload} from '../classes/payload';
+import {environment} from '../../environments/environment';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
@@ -11,19 +12,25 @@ const httpOptions = {
 
 @Injectable()
 export class PersonnageService {
+    private personnagesUrl = environment.apiUrl + '/personnages';
+    private httpOptions = {
+        headers: new HttpHeaders({
+            'Content-Type':  'application/json',
+            'Authorization': 'Bearer ' + environment.token
+        })
+    };
 
-    private personnagesUrl = 'http://127.0.0.1:8000/personnages';
-
-    constructor( private http: HttpClient ) { }
-
-    /** All personnages for one fiction */
-    getPersonnages(fictionId): Observable<Personnage[]> {
-      return this.http.get<Personnage[]>(this.personnagesUrl + '/fiction/' + fictionId)
-        .pipe(
-          catchError(this.handleError('getPersonnages', []))
-        );
+    constructor(
+        private http: HttpClient
+    ) { }
+    
+    /**
+     *
+     * @param fictionId
+     */
+    getPayload(fictionId): Observable<Payload> {
+        return this.http.get<Payload>(this.personnagesUrl + '/fiction/' + fictionId, this.httpOptions);
     }
-
     /** POST: ajouter un personnage */
     addPersonnage (personnage: Personnage): Observable<Personnage> {
         return this.http.post<Personnage>(this.personnagesUrl, personnage, httpOptions).pipe(
