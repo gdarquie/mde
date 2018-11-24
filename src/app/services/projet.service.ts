@@ -8,9 +8,6 @@ import {Projet} from '../classes/projet';
   providedIn: 'root'
 })
 export class ProjetService {
-
-constructor() { }
-
   private projetsUrl = environment.apiUrl + '/projets';
   private httpOptions = {
       headers: new HttpHeaders({
