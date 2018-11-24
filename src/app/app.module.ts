@@ -58,6 +58,7 @@ import {
   MatToolbarModule,
   MatTooltipModule,
 } from '@angular/material';
+import { PageProjetComponent } from './pages/page-projet/page-projet.component';
 
 @NgModule({
   exports: [
@@ -94,7 +95,8 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-  ]
+  ],
+  declarations: [PageProjetComponent]
 })
 export class DemoMaterialModule {}
 
