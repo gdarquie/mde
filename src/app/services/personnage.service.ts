@@ -23,7 +23,6 @@ export class PersonnageService {
     constructor(
         private http: HttpClient
     ) { }
-    
     /**
      *
      * @param fictionId
