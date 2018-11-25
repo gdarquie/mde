@@ -8,13 +8,19 @@ import {Projet} from '../classes/projet';
   providedIn: 'root'
 })
 export class ProjetService {
-  private projetsUrl = environment.apiUrl + '/projets';
-  private httpOptions = {
+    private projetsUrl = environment.apiUrl + '/projets';
+    private httpOptions = {
       headers: new HttpHeaders({
           'Content-Type':  'application/json',
           'Authorization': 'Bearer ' + environment.token
       })
-  };
+    };
+    private httpPublicOptions = {
+        headers: new HttpHeaders({
+            'Content-Type':  'application/json',
+            'Authorization': 'Bearer ' + environment.token
+        })
+    };
 
   constructor(
       private http: HttpClient
@@ -26,6 +32,6 @@ export class ProjetService {
    * @returns {Observable<Projet>}
    */
   getProjet(projetId): Observable<Projet> {
-      return this.http.get<Projet>(this.projetsUrl + '/' + projetId);
+      return this.http.get<Projet>(this.projetsUrl + '/' + projetId, this.httpPublicOptions);
   }
 }
